@@ -1,0 +1,36 @@
+<main>
+    <header class="create-header">
+        <input #file type="file" id="selectedFile" style="display: none;"
+        accept='image/*' 
+        (change)="preview(file.files)"/>
+        <input type="button" (click)="clickImage()" />
+        <img [src]="imgURL" *ngIf="imgURL">
+        <!--
+        <input type="image">
+        <img src="../../assets/icons/flower.svg" alt="">            
+        -->
+
+        
+    </header>
+    <section class="create">
+        <input type="text" class='inputs' placeholder="Your Post" [(ngModel)]="model.title" value="model.title">
+        <ckeditor type='classic' 
+        [(ngModel)]="model.editorData" 
+        class="editor"
+        [config]="{ language: 'en', uiColor: '#FFFFFF', magicline_color: '#0000FF'}"></ckeditor>    
+        <button (click)='savePost()'>
+            <div class="loader" *ngIf='posted'>
+                <div class="cm-spinner" ></div> 
+             </div>
+            Submit
+        </button>   
+        <!--
+        <div [innerHTML]='model.editorData'>
+            
+            
+        </div>             
+        -->
+    
+    </section>
+
+</main>

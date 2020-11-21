@@ -1,0 +1,126 @@
+main{
+    padding: 5% 20%;
+}
+
+.contact{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact p{
+    font-size: var(--text);
+    margin-bottom: 5%;
+}
+
+.contact h1{
+    font-size: var(--biggestText);
+}
+
+form{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+form > *{
+    position: relative;
+    margin-top: 35px;
+    border: none;
+}
+
+label{
+    font-size: var(--text);
+    font-weight: 500;
+}
+
+input, textarea{
+    font-size: var(--text);
+    padding: 0.7rem;
+    border: none;
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+    width: 100%;
+}
+
+input{
+    border: none;
+    
+    border-radius: 10px;
+    width: 100%;
+    font-size: var(--text);
+    padding: 0.8rem;   
+}
+input:focus{
+    outline: none;
+    box-shadow: 0 0 3px 2px rgb(226, 226, 226);
+    
+}
+
+.input-box {
+    width: 100%; /* calc(200px + 40%) */
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    
+    transition: 0.3s;
+    font-size: 1rem;
+    transform: translate(0,-50%);
+}
+
+.input-box input:focus ~ label{
+    top: -40%;
+    color: rgb(0, 43, 51);
+}
+.input-box input:valid ~ label{
+    top: -40%;
+    color: rgb(0, 43, 51);
+}
+
+
+.input-field{
+    width: 100%;
+    position: relative;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    
+}
+
+textarea:focus{
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+}
+
+button{
+    margin-top: 1rem;
+    padding: 1.5rem 4rem;
+    border: none;
+    background-color: black;
+    color: white;
+
+    
+    font-size: var(--biggerText);
+    font-weight: 600;
+    transition: 0.5s ease;
+    
+}
+
+button:hover{
+    background-color: rgb(36, 36, 36);
+    cursor: pointer;
+}

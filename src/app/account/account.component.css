@@ -1,0 +1,84 @@
+.account-wrap{
+    width: 100%;
+    position: relative;
+    display: flex;
+    padding: 10% 10%;
+    background-image: url('../../assets/images/section-BG/Wavey3.svg');
+    background-color: var(--background-dark);
+}
+
+.account-nav{
+    position: relative;
+    width: 15%;
+    height: 100%;
+    float: left;
+
+    
+}
+
+.account-display{
+    position: relative;
+    width: 85%;
+    float: left;
+    background-color: white;
+    border-radius: 0 25px 25px 0;
+    
+}
+
+.account-display::after{
+    position: absolute;
+    content: '';
+    right: -120px;
+    bottom: -80px;
+    width: 200px;
+    height: 120px;
+    background-image: url('../../assets/icons/3leaves.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: invert();
+    transform: rotateZ(135deg);
+}
+
+.account-display::before{
+    position: absolute;
+    content: '';
+    right: -120px;
+    top: -80px;
+    width: 200px;
+    height: 120px;
+    background-image: url('../../assets/icons/3leaves.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: invert();
+    transform: rotateZ(45deg);
+}
+
+
+.scroll-up{
+    position: fixed;
+    left: 16%;
+    bottom: 10%;
+    transform: translate(-50%, -50%) rotateZ(-90deg);
+    width: 70px;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    border-radius: 25%;
+    z-index: 100;
+    transition: 0.3s;
+    
+    background-image: url('../../assets/icons/arrow-right.svg');
+    background-size: 40px 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    
+}
+
+.scroll-up:hover{
+    background-color: rgba(0, 0, 0, 0.137);
+    cursor: pointer;
+}   

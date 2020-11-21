@@ -1,0 +1,159 @@
+nav{
+    width: 100%;
+    padding: 3%;
+}
+
+.input-field{
+    display: flex;
+    position: relative;
+}
+
+.input-field img{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: var(--header5);
+    height: var(--header5);
+}
+input{
+    padding: 1rem 2rem;
+    font-size: var(--header5);
+    border: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+    border-radius: 10px;
+    
+}
+
+.posts{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.post{
+    flex: 1 1 25rem;
+    padding: 0%;
+    height: 45vh;
+    margin: 3%;
+    position: relative;
+    background-color: rgba(128, 128, 128, 0);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 5px 1px rgba(5, 5, 5, 0.089);
+    /*
+    box-shadow: 0 0 3px 2px rgba(43, 43, 43, 0.137), 0 0 5px 1px rgba(43, 43, 43, 0.055);
+    */
+    
+
+}
+
+.post-img{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+.post-img img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+}
+
+.options{
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    bottom: -40%;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    
+}
+
+.options button{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background-size: 40px 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    
+    transition: 0.3s;
+    background-color: white;
+}
+
+.options button:hover{
+    filter: invert(10%);
+    background-color: rgb(240, 240, 240);
+    
+    cursor: pointer;
+}
+
+.delete{background-image: url('../../../assets/icons/post-bin.svg');}
+.edit{background-image: url('../../../assets/icons/post-edit.svg');}
+.web{background-image: url('../../../assets/icons/post-favorite.svg');}
+.post-img:hover > .options{
+    bottom: 20%;
+}
+
+.post-desc{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    top: 0;
+    /*
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    */
+    border-radius: 0 0 15px 15px;
+}
+
+.post-desc > div{
+    font-size: var(--text);
+    width: 30%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.icon{
+    width: var(--text);
+    height: var(--text);
+}
+
+
+/* ADD BUTTONS */
+.post-add{
+    background-image: url('../../../assets/icons/add.svg');
+    background-size: 120px 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.post-add:hover{
+    filter: invert(25%);
+    background-color: rgba(128, 128, 128, 0.075);
+}
+
+@media screen and (min-width: 1100px){
+    .post{
+        max-width: 44%;
+    }
+}

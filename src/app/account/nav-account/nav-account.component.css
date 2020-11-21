@@ -1,0 +1,105 @@
+
+/*
+.logo{
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%,-50%);
+    font-family: 'Indie Flower', cursive;
+    transition: 0.3s;
+    font-size: 2rem;
+}
+
+.logo:hover{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    cursor: pointer;
+    
+}
+*/
+
+
+
+.links{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    border-right: 0px solid rgba(0, 0, 0, 0.137);
+    
+    background-color: white;
+    /*
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.178);
+
+    background-image: url('../../assets/images/section-BG/Wavey3.svg');
+    background-color: var(--background-dark);
+    */
+
+    z-index: 99;
+    padding: 20vh 0;
+
+    border-radius: 25px 0 0  25px;
+    
+}
+
+.links::after{
+    position: absolute;
+    content: '';
+    left: -120px;
+    bottom: -80px;
+    width: 200px;
+    height: 120px;
+    background-image: url('../../../assets/icons/3leaves.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: invert();
+    transform: rotateZ(225deg);
+}
+
+.links::before{
+    position: absolute;
+    content: '';
+    left: -120px;
+    top: -80px;
+    width: 200px;
+    height: 120px;
+    background-image: url('../../../assets/icons/3leaves.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: invert();
+    transform: rotateZ(315deg);
+}
+
+ul{
+    text-align: center;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+ul a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    
+    font-weight: 500;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    position: relative;
+    display: block;
+    left: 0;
+    transition: 0.3s ease-in-out;
+    border-radius: 8px;
+    color: rgb(41, 41, 41);
+}
+
+ul a:hover{
+    left: 12px;
+    background-color: rgb(243, 242, 242);
+    
+}

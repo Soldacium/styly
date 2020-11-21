@@ -1,0 +1,158 @@
+
+main{
+    width: 100%;
+    
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-shadow: 0 0 4px 3px rgb(107, 107, 107);
+    padding: 3% 0%;
+    z-index: 300;
+    
+}
+main > section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2% 5%;}
+
+/* SECTION 1: NEWSLETTER */
+
+.section1{
+    width: 40%;
+}
+
+.section1 > *{
+    position: relative;
+    width: calc(100% - 20px);
+    margin: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1.8vh;
+    font-weight: 500;
+    color: white;
+    transition: 0.3s;
+    
+}
+.section1 > h1{
+    font-size: 3vh;
+}
+
+.section1 > a{
+    border: 2px solid rgb(243, 0, 101);
+    
+    
+}
+.section1 > a:hover{
+    background-color: rgb(243, 0, 101);
+    
+}
+
+.section1 > div{
+    font-size: 1.5vh;
+}
+.section1 > div:hover{
+    color:rgb(241, 0, 113);
+    cursor: pointer;
+}
+
+
+.inputField {
+    margin-top: 10%;
+    overflow: hidden;
+    border-radius: 10px; 
+    padding: 0; 
+}
+.inputField > *{
+    position: relative;
+    
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.5vh;
+    font-size: var(--text);
+
+    
+}
+
+.inputField > input{
+    width: 77%;
+    padding-left: 1rem;
+    padding-right: 1rem;    
+    border: none;
+    background-color: white
+    
+
+}
+.inputField > button{
+    border: none;
+    margin: none;
+    width: 23%;
+    background-color: rgb(66, 66, 66);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.inputField > button:hover{
+    cursor: pointer;
+    background-color: rgb(150, 9, 75);
+}
+
+/* SECTION2 : FAQ */
+.section2{
+    width: 30%;
+}
+
+.section2 a{
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: var(--text);
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.section2 a:hover{
+    color: rgb(226, 226, 226);
+}
+
+/* SECTION3 : FOLLOW */
+.section3{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+    align-items: flex-start;
+}
+
+.section3 a{
+    padding: 0.6rem 1.8rem;
+    margin-top: 1rem;
+    font-size: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 10px;
+
+    background-color: rgb(34, 34, 34);
+    color: rgb(255, 255, 255);
+}
+
+.section3 h3{
+    margin: 0 0 2rem 0;
+}
+
+a img{
+    width: var(--text);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: invert();
+}
+
+.section3 a:hover{
+    color: rgb(226, 226, 226);
+    cursor: pointer;
+}

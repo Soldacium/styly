@@ -1,0 +1,145 @@
+main{
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    background: url('../../assets/images/section-BG/WaveyWhite.svg');
+    overflow: hidden;
+    
+    
+}
+
+.login{
+    width: calc(300px + 15%);
+    
+    position: absolute;
+    
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 1px rgb(216, 216, 216);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    padding: 4rem 1rem;
+    border-radius: 20px;
+    transition: 1s;
+}
+
+.login.active{
+    top: 50%;
+}
+
+.login.naah{
+    top: -100%;
+}
+
+.switch{
+    margin-top: 1rem;
+    transition: 0.3s;
+    border: none;
+    background-color: transparent;
+    
+    
+}
+.switch:hover{
+    cursor: pointer;
+    color: tomato;
+
+}
+.login img{
+    width: 30%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.login input{
+    width: 70%;
+    padding: 0.7rem;
+    font-size: var(--text);
+    border: none;
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+    margin: 1rem;
+}
+
+button[type='submit']{
+    padding: 1.5rem 4rem;
+    font-size: var(--text);
+    margin: 2rem 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type='submit']:hover{
+    filter: invert();
+}
+
+button[type='submit']::before{
+    
+}
+
+
+
+.register{
+    width: calc(300px + 40%);
+    height: 65vh;
+    
+    position: absolute;
+    
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 1px rgb(216, 216, 216);
+
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    transition: 1s;
+    overflow: hidden;
+}
+
+.register.active{
+    top: 50%;
+}
+
+.register.naah{
+    top: 200%;
+}
+
+.register img{
+    flex: 1 1 20rem;
+    background-position: center;
+    background-size: initial;
+    max-width: 50%;
+    
+    display: flex;
+}
+
+.register .form{
+    flex: 1 1 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input{
+    width: 70%;
+    padding: 0.7rem;
+    font-size: var(--text);
+    border: none;
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+    margin: 0.5rem;
+}
+
+input{
+    border: 1px solid transparent;
+}
+
+

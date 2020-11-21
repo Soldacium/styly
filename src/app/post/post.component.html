@@ -1,0 +1,78 @@
+<main>
+    <section class="post-desc" id='header'>
+        <div class="pic">
+            <img src="{{postImg}}" alt="">
+        </div>
+        <div class="desc">
+            <h4 class="date">{{postContent.date}}</h4>
+            <h3 class="author"></h3>By {{postContent.author}}
+                     
+        </div>
+        <div class="title"><h1>{{postContent.title}}</h1></div>   
+
+    </section>
+
+    <section class="post-content" id = 'post' [innerHTML]='postContent.content'>
+        
+    </section>
+
+    <section class="post-share">
+        <h3>Share this post!</h3>
+        <div class="links">
+            <div class="link"><img src="assets/icons/facebook.svg" alt=""> Facebook</div>
+            <div class="link"><img src="assets/icons/twitter.svg" alt=""> Twitter</div>
+            <div class="link"><img src="assets/icons/pinterest.svg" alt=""> Pinterest</div>
+            <div class="link"><img src="assets/icons/instagram.svg" alt=""> Instagram</div>
+        </div>
+    </section> 
+    <section class="post-comments">
+        <h3>Join the discussion</h3>
+        <div class="comment-make">
+            <textarea type="text"></textarea>
+            <button>Submit</button>
+        </div>
+        <div class="comment-display">
+            <div class="comment">
+                <img src="assets/images/posts-BG/cool1.jpg" alt="">
+                
+                <div class="comment-text">
+                    <h4>Anonimus wrote:</h4>
+                    <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor eos at, alias voluptatum commodi velit deserunt ratione veritatis necessitatibus, repudiandae cumque dolore sequi recusandae minus quo fuga saepe repellat expedita.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>   
+    <section class="post-related">
+        <h3>Related posts</h3>
+        <div class="related-wrap">
+            <div class="related">
+                <img src="assets/images/posts-BG/cool1.jpg" alt="">
+                <div class="text">
+                    <h3>How does achive one greatness?</h3>
+                    <p>20-06-2020</p>
+                </div>
+            </div>
+            <div class="related">
+                <img src="assets/images/posts-BG/cool2.jpg" alt="">
+                <div class="text">
+                    <h3>How does achive one greatness?</h3>
+                    <p>20-06-2020</p>
+                </div>
+            </div>
+            <div class="related">
+                <img src="assets/images/posts-BG/cool3.jpg" alt="">
+                <div class="text">
+                    <h3>How does achive one greatness?</h3>
+                    <p>20-06-2020</p>
+                </div>
+            </div>            
+        </div>
+
+    </section>
+    <div class="canvas-wrap">
+        <canvas id="canvas"></canvas>
+    </div>
+</main>
+

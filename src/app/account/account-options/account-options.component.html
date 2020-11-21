@@ -1,0 +1,57 @@
+<section class="sendMail">
+    <h5>Privacy options</h5>
+    <div class="option">
+        <input type="checkbox">  
+        <div>Subscribe to newsletter</div>
+    </div>
+    <div class="option">
+        <input type="checkbox"> 
+        <div>Maximum security </div>
+    </div>
+    
+    
+</section>
+
+<section class="password">
+
+    <h5>Change Credentials</h5>
+
+    <input type="password" 
+    placeholder="Old password" 
+    name="oldPass"
+    [(ngModel)]="oldPass"
+    required>
+
+    <input type="password" 
+    placeholder="New password" 
+    name="newPass1"
+    [(ngModel)]="newPass1"
+    required>
+
+    <input type="password" 
+    placeholder="Repeat new password" 
+    name="newPass2"
+    [(ngModel)]="newPass2"
+    required>
+    <button (click)='changePassword()'>Change password</button>
+</section>
+
+<section class="deleteStuff">
+    <h5>Account menagement</h5>
+    <div class="option">
+        <button (click)='deleteAccount()' class="danger">Delete</button>
+        <p>Delete your account</p>
+        
+    </div>
+
+    <div class="option">
+        <button (click)='clearPosts()' class="danger">Clear</button>
+        <p>Clear all posts & history</p>
+        
+    </div>
+    
+</section>
+
+<section class="other">
+
+</section>

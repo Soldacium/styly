@@ -1,0 +1,125 @@
+main{
+    
+    width: 100%;
+    padding: 5% 0%;
+}
+
+.desc{
+    width: 100%;
+    padding: 3% 15%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5%;
+
+}
+
+section{
+    width: 100%;
+}
+
+/********* meetings******/
+.events{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 10%;
+}
+
+.event{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding: 8rem 0;
+    margin: 30px;
+    border-radius: 50px;
+
+}
+
+.event *{
+    color: white;
+    margin: 1rem;
+}
+
+
+
+.event > img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(2px) grayscale(80%);
+    transition: 0.3s;
+    margin: 0;
+}
+.event:hover > img{
+    filter: blur(0px) grayscale(0%);
+}
+
+
+
+
+
+
+.event-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.event-info > *{
+    margin: 0.9rem;
+    font-size: var(--text);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    
+}
+
+.event-info img{
+    width: var(--text);
+    margin-right: 5px;
+    filter: invert();
+}
+
+button{
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: var(--text);
+    font-weight: 600;
+    background-color: black;
+    border: none;
+}
+
+
+header{
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 10% 0rem;
+    padding: 0rem 5rem;
+
+}
+header::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    height: 0;
+    width: 60%;
+    border: 1px solid rgb(218, 218, 218);
+    z-index: 2;
+    transform: translate(0,-50%);
+}
+
+h1{
+    font-size: var(--biggestText);
+    z-index: 3;
+    position: relative;
+    background-color: white;
+    padding: 0rem 4rem;
+    margin: auto;
+}
+

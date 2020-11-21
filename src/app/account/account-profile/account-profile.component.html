@@ -1,0 +1,86 @@
+<section class="short" >
+    <div class="picture">
+        <div class="picture-frame" >
+            <!--
+            <input class="picture-pick" type='file' id='img' name='img' accept='image/*'>
+                
+                <img src="assets/icons/camera.svg" alt="">
+                <label for="file">Choose a file</label>                    
+                -->
+
+
+                <input #file type="file" id="selectedFile" style="display: none;"
+                accept='image/*' 
+                (change)="preview(file.files)"/>
+                <input type="button" (click)="clickImage()" />
+                <img [src]="imgURL" *ngIf="imgURL">
+    
+        </div>
+    </div>
+    <div class="info">
+        <!-- {{(userInfo | async)?.links.pinterest}} -->
+        <div class="info-values" *ngIf='!infoEdit'>
+            <h2>{{name}}</h2>
+            <div *ngIf='email'> 
+                <img src="assets/icons/mail.svg" alt="" class='icon'> 
+                {{email}}
+            </div>
+            <div *ngIf='pinterest'> 
+                <img src="assets/icons/pinterest.svg" alt="" class='icon'> 
+                {{pinterest}}
+            </div>
+            <div *ngIf='instagram'> 
+                <img src="assets/icons/instagram.svg" alt="" class='icon'> 
+                {{instagram}}
+            </div>
+            <div *ngIf='facebook'> 
+                <img src="assets/icons/website.svg" alt="" class='icon'> 
+                 {{facebook}}
+            </div>
+            <button class="edit" (click)='infoEdit = !infoEdit'>
+                Edit
+            </button>            
+        </div>
+
+        <form class="info-edit" *ngIf='infoEdit' #infoeditform='ngForm'>
+            <div class="input-box">
+                
+            </div>
+            <input type="text" name='name' placeholder="DisplayName" class='edit-name' [(ngModel)]='name' required value="name">
+            <input type="text" name='mail' placeholder="Mail" class='edit-input' [(ngModel)]='email' value='mail'>
+            <input type="text" name='pinterest' placeholder="Pinterest" class='edit-input' [(ngModel)]='pinterest' value='pinterest'>
+            <input type="text" name='instagram' placeholder="Instagram" class='edit-input' [(ngModel)]='instagram' value="instagram">
+            <input type="text" name='web' placeholder="Your Web" class='edit-input' [(ngModel)]='facebook' value="facebook">
+            <button class="edit" (click)='updateInfo()'>
+                Save
+            </button> 
+        </form>
+
+    </div>
+</section>
+
+<section class="desc">
+    <h2>About me</h2>
+    <div class="desc-value" *ngIf='!descEdit'>
+        <p>{{desc}}</p>
+        <button class="edit" (click)='descEdit = !descEdit'>
+            Edit
+        </button> 
+    </div>
+
+    <form class="desc-edit" *ngIf='descEdit'>
+        <textarea name="" id="" cols="30" rows="10"
+        name='desc' placeholder="Description"  [(ngModel)]='desc' >
+
+        </textarea>
+        <button class="edit" (click)='descEdit = !descEdit'>
+            Save
+        </button> 
+    </form>
+    
+
+</section>
+
+<section class="stats">
+
+</section>

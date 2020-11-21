@@ -1,0 +1,114 @@
+<main>
+    
+    <section class="popular" >
+        <div class="popular-posts">
+            <div class="popular-post most-popular">
+                <div class="img-wrap">
+                    <img src="assets/images/posts-BG/blossom2.jpg" alt="">
+                </div>
+                <div class="text-popular text">
+                    <h4>How does one achive greatness</h4>
+                    <p>12/09/2020</p>                        
+                </div>
+
+                    
+            </div>
+            <div class="more-popular">
+                <div class="popular-post more-popular-post">
+                    <div class="img-wrap">
+                        <img src="assets/images/posts-BG/blossom4.jpg" alt="">
+                    </div>
+                    <div class="text-popular text">
+                        <h5>How does one achive greatness</h5>
+                        <p>12/09/2020</p>                        
+                    </div>
+    
+                </div>
+                <div class="popular-post more-popular-post">
+                    <div class="img-wrap">
+                        <img src="assets/images/posts-BG/blossom4.jpg" alt="">
+                    </div>
+                    <div class="text-popular text">
+                        <h5>How does one achive greatness</h5>
+                        <p>12/09/2020</p>                        
+                    </div>
+                
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <header >
+        <h2>
+            Explore
+        </h2>
+    </header >
+    <section class='postsLoader'  [ngClass]='(isEmpty(this.postssImages))?"loading":"done"'>
+        <div class="cm-spinner"></div>
+
+
+    </section>
+    <section class="allPosts" >
+        
+        <div class="post" *ngFor='let post of postss | async; index as i' (click)='viewPost(post)'>
+            <img src='{{postssImages[post.imageID]}}' alt="Post image" (load)='loadedPic(i)' [ngClass]='loadedImages[i]?"active":"inactive"'>
+            <div class="imagePlaceholder" *ngIf='!loadedImages[i]'></div>
+            <div class="text">
+                <h4>{{post.title}}</h4>
+                <h5 style="color: rgb(58, 58, 58);">By {{post.author}}</h5>
+                <p>{{post.date}}</p>
+            </div>
+        </div>
+        <!--
+        <div class="post" *ngFor='let post of posts' (click)='viewPost(post)'>
+            <img src={{post}} alt="" >
+            <div class="text">
+                <h4>How does achive one greatness?</h4>
+                <h5 style="color: rgb(58, 58, 58);">By Robin Martin</h5>
+                <p>20-06-2020</p>
+            </div>
+        </div>            
+        -->
+
+    </section>
+    <section class="sideNav">
+        <div class="search">
+            
+              <input type="text" placeholder="Search...">  
+            
+            <!--
+            <select name="" id="">
+                <option value="top" selected>Top</option>
+                <option value="top">Newest</option>
+                <option value="top">Bottom</option>
+            </select>
+            <select name="" id="">
+                <option value="top" selected>Last 7 days</option>
+                <option value="top">Last 30 days</option>
+                <option value="top">Bottom</option>
+            </select> 
+            <button>Search</button>               
+            -->
+
+            
+        </div>
+        <div class="features">
+            <h5>Choose categoty</h5>
+            <div>
+                <button>Style</button>
+                <button>Expiriences</button>
+                <button>Travel</button>
+                <button>News</button>
+                <button>People</button>
+            </div>
+        </div>
+    </section>
+    <section class="choosePage">
+        <div class="prev" (click)='prev()'></div>
+        <div class="page" *ngFor='let page of pages' (click)='goToPage(page)' [ngClass]="(pageActive == page)?'active':'naah'"></div>
+
+        <div class="next" (click)='next()'></div>
+        
+    </section>
+</main>

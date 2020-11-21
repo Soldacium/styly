@@ -1,0 +1,69 @@
+<div class="bonus">
+
+</div>
+<main>
+    
+    <header>
+        <h1>
+            Styly
+        </h1>
+        <img src="assets/icons/flower (1).svg" alt="">
+    </header>
+    <nav>
+        <ul class="links">
+            <li><a [routerLink]='[""]' [ngClass]="(router.isActive('contact',false)==true)?'active':'naah'">Posts</a></li>
+            <li><a [routerLink]='["events"]' [ngClass]="(router.isActive('contact',false)==true)?'active':'naah'">Events</a></li>
+            <li><a [routerLink]='["about"]' [ngClass]="(router.isActive('contact',false)==true)?'active':'naah'">About</a></li>
+            <li><a [routerLink]='["contact"]' [ngClass]="(router.isActive('contact',false)==true)?'active':'naah'">Contact</a></li>
+        </ul>
+
+        <div class="search">
+
+        </div>
+
+        <div class="login" *ngIf="!(user|async)?.uid">
+            <a [routerLink]='["login"]'>Login</a>
+        </div>
+
+        <!--
+        <div class="login" *ngIf="(user|async)?.uid">
+            <a (click)="logout()">Logout</a>
+            <span></span>
+        </div>            
+        -->
+
+
+        <div class="logged" *ngIf="(user|async)?.uid" (click)='loggedLinks = !loggedLinks'>
+            <img src="{{imgURL}}" alt="" *ngIf='imgURL !== null && imgURL !== undefined'>
+            <ul class="logged-links" [ngClass]="(loggedLinks)?'active':'inactive'">
+                <li><a [routerLink]='["/account"]' [ngClass]="(router.isActive('/account',false)==true)?'active':'naah'">My profile <img src="assets/icons/user.svg" alt=""></a></li>
+                <li><a [routerLink]='["/account/options"]' [ngClass]="(router.isActive('/account/options',false)==true)?'active':'naah'">Options <img src="assets/icons/settings.svg" alt=""></a></li>
+                <li><a (click)="logout()">Logout <img src="assets/icons/logout.svg" alt=""></a></li>
+            </ul>
+        </div>
+
+
+    </nav>
+    <div class="hamburger" (click)='change()'
+    [ngClass]="active ? 'active' : 'naah' ">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+
+
+</main>
+<div class="overlay" [ngClass]="active ? 'visible' : 'naah'">
+    <div class="nav2">
+        <ul >
+            <li><a (click) = 'change()' [routerLink]='["welcome"]' [ngClass]="(router.isActive('contact',false)==true)?'active':'naah'">Posts</a></li>
+            <li><a (click) = 'change()' [routerLink]='["contact"]' [ngClass]="(router.isActive('contact',false)==true)?'active':'naah'">Coaching</a></li>
+            <li><a (click) = 'change()' [routerLink]='["about"]' [ngClass]="(router.isActive('contact',false)==true)?'active':'naah'">About</a></li>
+            <li><a (click) = 'change()' [routerLink]='["contact"]' [ngClass]="(router.isActive('contact',false)==true)?'active':'naah'">Contact</a></li>
+        </ul>
+    </div>
+</div>
+    

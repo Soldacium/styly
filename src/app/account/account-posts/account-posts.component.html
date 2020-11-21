@@ -1,0 +1,53 @@
+<nav class="search">
+    <div class="input-field">
+        <img src="assets/icons/post-search.svg" alt="">
+        <input type="text" placeholder="Search for post...">  
+        <div>{{(postyy | async)?.postTitle}}</div> 
+    </div>
+    
+</nav>
+<section class="posts">
+    <div class="post post-add" (click)='newPost()'>
+
+    </div>
+    <div class="post" *ngFor='let post of myposts; index as i'>
+        <div class="post-img">
+            <img src={{postImagesURLs[i]}} alt=''>
+            <div class="options">
+                <button class="delete" (click)='deletePost(post)'></button>
+                <button class="edit" (click)='editPost(post)'></button>
+                <button class="web"></button>
+            </div>            
+        </div>
+        <div class="post-desc">
+            <div>{{post.title}}</div>
+            <div class="views">246 <img class="icon" src="assets/icons/heart.svg" alt="Views"> </div>
+            <div class="shares">14 <img class="icon" src="assets/icons/comment.svg" alt="Shares"> </div>            
+        </div>
+    </div>
+    <!-- TESTING
+    <div class="post" *ngFor='let post of posts'>
+        <div class="post-img">
+            <img src="../../assets/images/posts-BG/cool1.jpg" alt="Post-image">
+            <div class="options">
+                <button class="delete" (click)='deletePost(post)'></button>
+                <button class="edit" (click)='editPost(post)'></button>
+                <button class="web"></button>
+            </div>            
+        </div>
+        <div class="post-desc">
+            <div>How does one achive greatness?</div>
+            <div class="views">246 <img class="icon" src="/assets/icons/heart.svg" alt="Views"> </div>
+            <div class="shares">14 <img class="icon" src="/assets/icons/comment.svg" alt="Shares"> </div>            
+        </div> 
+    </div>   
+    -->
+
+
+
+
+
+
+    
+</section>
+
