@@ -28,6 +28,7 @@
       "@assets/*": ["assets/*"],
       "@app/*": ["app/*"]
     },
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

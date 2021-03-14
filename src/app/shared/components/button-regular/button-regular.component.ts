@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button-regular',
   templateUrl: './button-regular.component.html',
   styleUrls: ['./button-regular.component.sass']
 })
-export class ButtonRegularComponent implements OnInit {
+export class ButtonRegularComponent{
 
-  constructor() { }
+  @Input()
+  text = '';
 
-  ngOnInit(): void {
+  @Input()
+  img = '';
+
+  @Input()
+  deviation = '';
+
+  @Input()
+  inverted = false;
+
+  @Output() onclick:
+  EventEmitter<Event> = new EventEmitter<Event>();
+
+  clickButton(event: Event): void{
+    this.onclick.emit(event);
   }
-
 }

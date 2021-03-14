@@ -5,10 +5,10 @@ main
     align-items: center
     justify-content: center
     position: relative
-    background-color: var(--colorSecondary)
+    background-color: transparent
 
     .arrow
-        padding: 0.5rem
+        padding: 0.5rem 2rem
         cursor: pointer
         background-color: white
         border: none
@@ -17,9 +17,10 @@ main
         justify-content: center
         align-items: center
         position: absolute
+        z-index: 5
 
         &.left
-            left: 1rem
+            left: 0;
 
         &.right
             right: 0
@@ -40,9 +41,9 @@ main
             display: flex
             justify-content: center
             align-items: center
-            width: 2.5rem
-            height: 2.5rem
-            font-size: 1.3rem
+            width: 4rem
+            height: 4rem
+            font-size: 2rem
             color: white
             top: 50%
             transform: translate(-50%,-50%)

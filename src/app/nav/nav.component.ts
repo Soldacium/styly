@@ -8,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   active = false;
-  constructor() { }
 
   ngOnInit(): void {
+    this.addListeners();
+  }
+
+  addListeners(){
+    window.addEventListener('scroll', (e) => {
+      // console.log(e);
+    })
   }
 
 }
