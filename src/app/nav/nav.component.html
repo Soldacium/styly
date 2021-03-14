@@ -1,0 +1,39 @@
+<main>
+    
+    <header>
+        <img src="assets/icons/flower (1).svg" alt="">
+    </header>
+    <nav>
+        <a href="">Animals</a>
+        <a href="">About</a>
+        <a href="">News</a>
+        <a href="">Tickets</a>
+        <div class="hamburger" (click)='active = !active'
+        [ngClass]="active ? 'active' : 'naah' ">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!--
+        <div class="login" *ngIf="!(user|async)?.uid">
+            <a [routerLink]='["login"]'>Login</a>
+        </div>            
+        -->
+
+
+        <!--
+        <div class="logged" *ngIf="(user|async)?.uid" (click)='loggedLinks = !loggedLinks'>
+            <img src="{{imgURL}}" alt="" *ngIf='imgURL !== null && imgURL !== undefined'>
+            <ul class="logged-links" [ngClass]="(loggedLinks)?'active':'inactive'">
+                <li><a [routerLink]='["/account"]' [ngClass]="(router.isActive('/account',false)==true)?'active':'naah'">My profile <img src="assets/icons/user.svg" alt=""></a></li>
+                <li><a [routerLink]='["/account/options"]' [ngClass]="(router.isActive('/account/options',false)==true)?'active':'naah'">Options <img src="assets/icons/settings.svg" alt=""></a></li>
+                <li><a (click)="logout()">Logout <img src="assets/icons/logout.svg" alt=""></a></li>
+            </ul>
+        </div>            
+        -->
+
+
+
+    </nav>
+</main>

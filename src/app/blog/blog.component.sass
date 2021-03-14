@@ -1,0 +1,160 @@
+/* general */
+img
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+
+main
+    position: relative
+
+section
+    width: 100%
+
+
+.featured
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    padding: 0rem 15%;
+    padding-bottom: 4rem;
+    z-index: -1
+        
+
+    app-post-thumbnail 
+        flex: 1 1 40rem
+        height: 25rem
+        margin: 0.25rem
+
+
+
+
+/* HEADER */
+header
+    display: flex
+    position: relative
+    padding: 1rem 0
+    background-color: var(--colorSecondary)
+    color: white
+    justify-content: center
+    align-items: center
+    text-align: center
+
+    h2
+        position: relative
+        top: 2rem
+        margin: 0rem 3rem 
+        font-size: 4rem
+        z-index: 3
+        color: var(--colorAccent3)
+
+
+
+/* ALL POSTS SECTION */
+.allPosts 
+    width: 100%
+    background-color: rgb(240, 240, 240)
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+
+
+    app-post-thumbnail 
+        flex: 1 1 25rem
+        height: 25rem
+        margin: 0.25rem
+
+
+@keyframes fadeInLeft
+    0%
+        left: -30px
+        top: -30px
+        opacity: 0
+    100%
+        left: 0
+        top: 0
+        opacity: 1
+    
+
+
+.postsLoader
+    width: 100%
+    height: 250px
+    display: flex
+    align-items: center
+    justify-content: center
+    overflow: hidden
+    transition: 1s
+    margin-top: 30px
+
+    img
+        height: 100%
+        padding: 0%
+        margin: 10%
+
+    .loading
+        height: 200px
+        opacity: 1
+
+    .done
+        height: 0px
+        opacity: 0
+        margin-top: 0
+
+
+.cm-spinner 
+    height: 150px
+    width: 150px
+    border: 3px solid transparent
+    border-radius: 50%
+    border-top: 4px solid #474747
+    -webkit-animation: spin 6s linear infinite
+    animation: spin 6s linear infinite
+    position: relative
+  
+  
+    &::before,
+    &::after 
+        content: ""
+        position: absolute
+        top: 6px
+        bottom: 6px
+        left: 6px
+        right: 6px
+        border-radius: 50%
+        border: 4px solid transparent
+  
+  
+    &::before 
+        border-top-color: #ff9bd2
+        -webkit-animation: 4s spin linear infinite
+        animation: 4s spin linear infinite
+  
+  
+    &::after 
+        border-top-color: #ff1e7c
+        -webkit-animation: spin 2s linear infinite
+        animation: spin 2s linear infinite
+     
+               
+@-webkit-keyframes spin 
+    from 
+        -webkit-transform: rotate(0deg)
+        transform: rotate(0deg)
+    
+    to 
+        -webkit-transform: rotate(360deg)
+        transform: rotate(360deg)
+      
+     
+          
+@keyframes spin 
+    from 
+        -webkit-transform: rotate(0deg)
+        transform: rotate(0deg)
+    
+    to 
+        -webkit-transform: rotate(360deg)
+        transform: rotate(360deg)
+      
