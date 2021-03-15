@@ -1,13 +1,13 @@
-<main>
+<main class="menu-full" [ngClass]='{"active" : !scrolled}'>
     
     <header>
         <img src="assets/icons/flower (1).svg" alt="">
     </header>
-    <nav>
-        <a href="">Animals</a>
-        <a href="">About</a>
-        <a href="">News</a>
-        <a href="">Tickets</a>
+    <nav >
+        <a [routerLink]='["blog"]'>Blog</a>
+        <a [routerLink]='["welcome"]'>About</a>
+        <a [routerLink]='["welcome"]'>News</a>
+        <a [routerLink]='["welcome"]'>Tickets</a>
         <div class="hamburger" (click)='active = !active'
         [ngClass]="active ? 'active' : 'naah' ">
             <span></span>
@@ -32,8 +32,13 @@
             </ul>
         </div>            
         -->
-
-
-
     </nav>
 </main>
+
+<nav class='menu-fixed' [ngClass]='{"active" : scrolled}'>
+    <img src="../../assets/images/BGs/blob.svg" alt="">
+    <a [routerLink]='["blog"]'>Blog</a>
+    <a [routerLink]='["welcome"]'>About</a>
+    <a [routerLink]='["welcome"]'>News</a>
+    <a [routerLink]='["welcome"]'>Tickets</a>
+</nav>

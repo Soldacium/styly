@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   active = false;
+  scrolled = false;
 
   ngOnInit(): void {
     this.addListeners();
@@ -16,6 +17,13 @@ export class NavComponent implements OnInit {
   addListeners(){
     window.addEventListener('scroll', (e) => {
       // console.log(e);
+      if(window.scrollY > 60){
+        this.scrolled = true;
+      }else{
+        this.scrolled = false;
+      }
+
+
     })
   }
 

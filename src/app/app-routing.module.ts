@@ -11,16 +11,20 @@ const routes: Routes = [
   },
   {
     path: 'blog',
-    component: BlogComponent
+    component: BlogComponent,
+    data: {animation: 'blog'}
   },
   {
     path: 'post',
-    component: PostComponent
+    component: PostComponent,
+    data: {animation: 'post'}
   },
+  /*
   {
     path: '**',
     component: BlogComponent
   }
+  */
 ];
 
 @NgModule({

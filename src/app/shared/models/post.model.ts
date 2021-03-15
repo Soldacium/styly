@@ -9,4 +9,5 @@ export interface Post {
     comments: Comment[];
     imageUrl: string;
     hasEvent: Boolean;
+    author: string;
 }

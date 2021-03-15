@@ -6,10 +6,15 @@ main
     flex-direction: column;
     justify-content: center
     padding-bottom: 1rem
-    position: fixed
+    position: absolute
     top: 0
     left: 0
+    opacity: 0
+    transition: 0.5s ease
     z-index: 200
+    &.active
+        opacity: 1;
+
     header
         width: 100%
         display: flex;
@@ -24,28 +29,29 @@ main
             height: 5rem
 
     nav
-        width: 100%
-    
-nav
-    right: 0
-    top: 0
-    position: sticky
-    display: flex
-    justify-content: center
-    align-items: center
-    padding: 1rem
-
-    z-index: 125
-    >*
-        margin: 0 2rem
-
-    a 
-        display: flex
+        right: 0
+        top: 0
         position: relative
-        font-size: 1.5rem
-        color: black
-        font-weight: 500
-        text-decoration: none
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 1rem
+        width: 100%
+
+        z-index: 125
+        >*
+            margin: 0 2rem
+
+        a 
+            display: flex
+            position: relative
+            font-size: 1.5rem
+            color: black
+            font-weight: 500
+            text-decoration: none
+        
+    
+
 
 canvas
     position: absolute
@@ -78,7 +84,39 @@ canvas
         color: white
         font-size: larger
     
+.menu-fixed
+    transition: 0.5s ease;
+    top: -16rem;
+    left: -1.5rem;
+    opacity: 0
+    z-index: 125;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding: 1rem 1rem;
+    &.active
+        top: 0rem
+        left: 1.5rem
+        opacity: 1
+    img
+        position: absolute
+        left: -9rem
+        top: -9rem
+        height: 26rem
+        width: 26rem
+        transform: rotate(-25deg)
+        pointer-events: none
+    
+    a 
+        display: flex
+        position: relative
+        font-size: 1.6rem
+        color: var(--colorAccent3)
+        font-weight: 500
+        text-decoration: none
+    
 
+    
 
 /************ HAMBURGER **************/
 
