@@ -1,0 +1,49 @@
+<main>
+    <section class="basic">
+        <div class="image">
+            <input #file type="file" id="selectedFile" style="display: none;"
+            accept='image/*' 
+            (change)="preview(file.files)"/>
+            <button (click)="file.click()"></button>
+            <img [src]="imgURL" *ngIf="imgURL">
+        </div>
+        <div class="info">
+            <app-input-regular
+            [label]="'Name'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="profile.username" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>     
+            <app-input-regular
+            [label]="'Name'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="profile.username" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>   
+            <app-input-regular
+            [label]="'Name'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="profile.username" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>   
+            <app-input-regular
+            [label]="'Name'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="profile.username" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>   
+            <app-input-regular
+            [label]="'Name'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="profile.username" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>   
+        </div>
+    </section>
+    <section class="desc">
+        <quill-editor></quill-editor>
+    </section>
+    <section class="stats">
+
+    </section>
+</main>

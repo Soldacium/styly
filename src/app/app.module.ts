@@ -16,6 +16,12 @@ import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './shared/components/search/search.component';
 import { InputRegularComponent } from './shared/components/input-regular/input-regular.component';
 import { FormsModule } from '@angular/forms';
+import { UserComponent } from './user/user.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserPostsComponent } from './user/user-posts/user-posts.component';
+import { UserSavedComponent } from './user/user-saved/user-saved.component';
+import { UserOptionsComponent } from './user/user-options/user-options.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -30,13 +36,19 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     LoginComponent,
     SearchComponent,
-    InputRegularComponent
+    InputRegularComponent,
+    UserComponent,
+    UserProfileComponent,
+    UserPostsComponent,
+    UserSavedComponent,
+    UserOptionsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
