@@ -1,0 +1,41 @@
+
+$size-bezel: .5rem;
+$size-radius: 4px;
+
+.input 
+    position: relative;
+
+    
+    &__label 
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: calc(#{$size-bezel} * 0.75) calc(#{$size-bezel} * .5);
+        margin: calc(#{$size-bezel} * 0.75 + 3px) calc(#{$size-bezel} * .5);
+        background: pink;
+        white-space: nowrap;
+        transform: translate(0, 0);
+        transform-origin: 0 0;
+        background: var(--colorPrimary);
+        transition: transform 120ms ease-in;
+        font-weight: bold;
+        line-height: 1.2;
+    
+    &__field 
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        border: 3px solid currentColor;
+        padding: calc(#{$size-bezel} * 1.5) #{$size-bezel};
+        color: currentColor;
+        background: transparent;
+        border-radius: #{$size-radius};
+        
+        &:focus,
+        &:not(:placeholder-shown) 
+        & + .input__label 
+            transform: translate(.25rem, -65%) scale(.8);
+            color: var(--colorAccent1);
+      
+    
+  

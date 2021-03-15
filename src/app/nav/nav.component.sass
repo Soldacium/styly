@@ -50,24 +50,42 @@ main
             font-weight: 500
             text-decoration: none
         
+.hamburger
+    position: absolute
+    right: 2rem
+    width: 40px
+    height: 40px
+    z-index: 300
+    margin: 0 1rem
+    cursor: pointer
+    z-index: 300
+
+    span
+        position: absolute
+        height: 6px
+        border-radius: 3px
+        width: 100%
+        background: var(--colorSecondary)
+        top: 0
+        transition: transform .2s ease-in-out, opacity .2s ease-in-out
+        &:nth-child(1)
+            top: 4px
+        &:nth-child(2),&:nth-child(3)
+            top: 17px
+        &:nth-child(4)
+            top: 29px
     
 
-
-canvas
-    position: absolute
-    left: 0
-    top: 0
-
-
-.fill
-    position: absolute
-    right: -10rem
-    top: -10rem
-    height: 3rem
-    width: 3rem
-    border-radius: 50%
-    background-color: var(--colorSecondary)
-    z-index: -1
+    &.active
+        span
+            z-index: 600
+            background: var(--colorPrimary)
+            &:nth-child(1),&:nth-child(4) 
+                opacity: 0
+            &:nth-child(2)
+                transform: rotate(45deg)
+            &:nth-child(3)
+                transform: rotate(-45deg)
 
 .menuText
     top: 30px
@@ -116,106 +134,79 @@ canvas
         text-decoration: none
     
 
-    
 
-/************ HAMBURGER **************/
 
-.hamburger
-    position: absolute
-    right: 2rem
-    width: 40px
-    height: 40px
-    z-index: 300
-    margin: 0 1rem
-    cursor: pointer
-
-    span
-        position: absolute
-        height: 6px
-        border-radius: 3px
-        width: 100%
-        background: var(--colorSecondary)
-        top: 0
-        transition: transform .2s ease-in-out, opacity .2s ease-in-out
-        &:nth-child(1)
-            top: 4px
-        &:nth-child(2),&:nth-child(3)
-            top: 17px
-        &:nth-child(4)
-            top: 29px
-    
-
-    &.active
-        span
-            background: 
-            var(--colorPrimary)
-            &:nth-child(1),&:nth-child(4) 
-                opacity: 0
-            &:nth-child(2)
-                transform: rotate(45deg)
-            &:nth-child(3)
-                transform: rotate(-45deg)
         
     
 
+.fill
+    position: absolute
+    right: -60vw
+    top: -100vh
+    height: 3rem
+    width: 3rem
+    border-radius: 50%
+    z-index: -1
+
+    &.fill1
+        background-color: var(--colorSecondary)
+    &.fill2
+        background-color: var(--colorAccent3)
 
 
-
-/********************* style overlay ***********************/
 .overlay 
-    position: fixed
-    top: 0
-    right: 0
-    width: 100%
-    height: 100%
-    z-index: 250
-    display: flex
-    align-items: center
-    justify-content: center
-    transition: 1s ease
-    pointer-events: none
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 250;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s ease;
+    pointer-events: none;
 
     &.visible
-        pointer-events:all
+        pointer-events: all;
+        >*
+            opacity: 1
     
-     
     &.naah
-        pointer-events: none
+        pointer-events: none;
+        >*
+            opacity: 0
     
+
+
+.menu-overlay
+    font-size: 2rem;
+    text-align: center;
+    transition: 1s;
+    transition-delay: 0.5s;
+
+    ul 
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li
+            margin: 26px 0;
+
+            a 
+                color: rgb(255, 255, 255);
+                padding: 10px;
+                font-size: 38px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 1s;
+
+                &:hover
+                    box-shadow: white 0px 0px 12px;
+                
+            
         
     
 
 
-/* the animations */
 
-@keyframes fadeInLeft 
-   0% 
-       opacity: 0
-       transform: translate3d(-25%,0,0)
-   
-
-   100% 
-       opacity: 1
-       transform: translate3d(0,0,0)
-   
-
-
-/*make overlay visible */
-.overlay.visible li
-    animation: fadeInLeft .3s ease-in-out forwards
-
-    .overlay.visible li:nth-of-type(1)
-        animation-delay:  .24s
-    
-    .overlay.visible li:nth-of-type(2)
-        animation-delay:  .28s
-    
-    .overlay.visible li:nth-of-type(3)
-        animation-delay:  .32s
-    
-    .overlay.visible li:nth-of-type(4)
-        animation-delay:  .36s
-    
-    .overlay.visible li:nth-of-type(5)
-        animation-delay:  .40s
-    

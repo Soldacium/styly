@@ -1,1 +1,5 @@
-<p>input-regular works!</p>
+<div class="input">
+    <input class="input__field" [type]="type"  [name]="label" [id]='label' required 
+    [(ngModel)]="inputModel" (ngModelChange)="inputModelChange.emit(inputModel)" />
+    <label [for]="label" class="input__label">{{label}}</label>
+</div>

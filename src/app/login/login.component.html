@@ -1,1 +1,74 @@
-<p>login works!</p>
+<main>
+    <section class="login">
+        <div class="thumbnails">
+            <div class="simpleThumbnail" *ngFor='let thumb of simpleThumbnails'>
+                <div class="front face"></div>
+                <div class="back face"></div>  
+            </div>
+        </div>            
+        
+            
+
+        <div class="login-panel panel" [ngClass]="{'active': !doneAnimations.background}">
+            <h1>LOGIN</h1>
+            <app-input-regular
+            [label]="'Name'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="loginCreds.email" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>
+
+            <app-input-regular
+            [label]="'Password'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="loginCreds.email" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>
+
+            <app-button-regular [text]="'Get going'" (click)='animateThumbnailsForward()'></app-button-regular>
+        </div>
+    </section>
+
+    <section class="register" >
+        <div class="thumbnails">
+            <div class="simpleThumbnail" *ngFor='let thumb of simpleThumbnails'>
+                <div class="front face"></div>
+                <div class="back face"></div>  
+            </div>
+        </div>   
+        <div class="register-panel panel" [ngClass]="{'active': doneAnimations.background}">
+            <h1>REGISTER</h1>
+            <app-input-regular
+            [label]="'Email'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="registerCreds.email" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>
+
+            <app-input-regular
+            [label]="'Password'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="registerCreds.password1" 
+            [type]="'password'"
+            [darkMode]='false'></app-input-regular>
+
+            <app-input-regular
+            [label]="'Repeat password'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="registerCreds.password2" 
+            [type]="'password'"
+            [darkMode]='false'></app-input-regular>
+
+            <app-input-regular
+            [label]="'Name'" 
+            [placeholder]="'Name'" 
+            [(inputModel)]="registerCreds.username" 
+            [type]="'text'"
+            [darkMode]='false'></app-input-regular>
+
+
+
+            <app-button-regular [text]="'Start your journey'"></app-button-regular>
+        </div>
+    </section>
+</main>

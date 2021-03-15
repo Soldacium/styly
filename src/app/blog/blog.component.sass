@@ -17,9 +17,9 @@ section
     align-items: center;
     position: relative;
     flex-wrap: wrap;
-    padding: 0rem 15%;
-    padding-bottom: 4rem;
-    padding-top: 10%;
+    padding: 0rem 20%;
+    padding-bottom: 10%;
+    padding-top: 12%;
     z-index: 3
 
     .cards
@@ -59,7 +59,7 @@ section
             .front
                 background-color: #ffffff
                 z-index: 1;
-                border-right: 2px solid #ececec
+                border-right: 2px solid #f5f5f5
             .back
                 overflow: hidden;
                 z-index: -1;
@@ -75,9 +75,11 @@ section
 
     app-post-thumbnail 
         flex: 1 1 35rem
-        height: 25rem
+        height: 20rem
         margin: 0.25rem
         z-index: 6
+        position: relative
+        top: 0
 
 
 
@@ -123,6 +125,7 @@ header
         flex: 1 1 25rem
         height: 25rem
         margin: 0.25rem
+        position: relative
 
     app-paginator
         width: 50%
