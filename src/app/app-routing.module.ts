@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BlogComponent } from './blog/blog.component';
 import { LoginComponent } from './login/login.component';
 import { PostComponent } from './post/post.component';
+import { EditPostComponent } from './user/edit-post/edit-post.component';
 import { UserOptionsComponent } from './user/user-options/user-options.component';
 import { UserPostsComponent } from './user/user-posts/user-posts.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
@@ -47,9 +48,13 @@ const routes: Routes = [
         component: UserSavedComponent,
       },
       {
+        path: 'edit-post',
+        component: EditPostComponent,
+      },
+      {
         path: 'options',
         component: UserOptionsComponent,
-      },
+      }
     ]
   },
   {

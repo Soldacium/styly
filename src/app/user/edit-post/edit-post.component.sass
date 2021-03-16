@@ -1,0 +1,153 @@
+main
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    >*
+        position: relative;
+    
+
+    .image
+        width: 600px;
+        height: 20vh;
+        overflow: hidden;
+        background-color: rgb(247, 247, 247);
+        z-index: 8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img
+            position: relative;
+            height: 100%;
+        
+        button
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            background-color: transparent;
+            cursor: pointer;
+
+    textarea
+        position: relative;
+        width: 100%;
+        height: 20vh;
+        resize: vertical;
+        border: 1px solid rgb(204, 204, 204);
+        padding: 1rem;
+    
+
+    .tags
+        display: flex;
+        align-items: center;
+        align-content: center;
+        width: 100%;
+        padding: 1rem;
+        flex-wrap: wrap;
+
+        .tag
+            padding: 0.6rem 1rem;
+            border: none;
+            display: flex;
+            font-size: 1rem;
+            border-radius: 0.6rem;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.699);
+            border: none;
+            box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.055) inset;
+            background-color: rgb(248, 248, 248);
+            margin: 0.5rem;
+            margin-left: 0;
+            transition: 0.3s ease;
+            align-items: center;
+            cursor: pointer;
+
+            &:focus
+                outline: none;
+            
+
+            span
+                filter: invert(10%);
+            
+
+            span
+                margin-right: 0.5rem;
+                height: 1.5rem;
+                width: 1.5rem;
+                border: none;
+                transition: 0.3s ease;
+                background-size: cover;
+            
+
+            &.active
+                color: white;
+                background-color: var(--colorPrimary);
+                font-size: 600;
+
+                span
+                    filter: invert(100%);
+                
+            
+    quill-editor
+        position: relative;
+        height: 70vh;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
+    
+
+    .checkbox
+        display: block;
+        margin: 1rem 0;
+
+        input 
+            padding: 0;
+            height: initial;
+            width: initial;
+            margin-bottom: 0;
+            display: none;
+            cursor: pointer;
+          
+        label 
+            position: relative;
+            cursor: pointer;
+
+            &:before 
+                content: '';
+                -webkit-appearance: none;
+                background-color: transparent;
+                border: 2px solid #0079bf;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+                padding: 10px;
+                display: inline-block;
+                position: relative;
+                vertical-align: middle;
+                cursor: pointer;
+                margin-right: 5px;
+            
+        
+
+        input:checked + label:after 
+            content: '';
+            display: block;
+            position: absolute;
+            top: 2px;
+            left: 9px;
+            width: 6px;
+            height: 14px;
+            border: solid #0079bf;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        
+    .add-event
+        width: 100%;
+        textarea
+            margin-top: 1rem;
+            width: 100%;
+            height: 15vh;
+            padding: 1rem;
+        
+    
+    
