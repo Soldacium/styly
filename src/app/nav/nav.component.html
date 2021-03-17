@@ -3,18 +3,12 @@
     <header>
         <img src="assets/icons/flower (1).svg" alt="">
     </header>
-    <nav >
+    <nav class="menu-main">
         <a [routerLink]='["blog"]'>Blog</a>
         <a [routerLink]='["welcome"]'>About</a>
         <a [routerLink]='["welcome"]'>News</a>
         <a [routerLink]='["login"]'>Login</a>
-        <div class="hamburger" (click)='change()'
-        [ngClass]="active ? 'active' : 'naah' ">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+
         <!--
         <div class="login" *ngIf="!(user|async)?.uid">
             <a [routerLink]='["login"]'>Login</a>
@@ -34,6 +28,14 @@
         -->
     </nav>
 </main>
+
+<div class="hamburger" (click)='change()'
+[ngClass]="active ? 'active' : 'naah' ">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
 <nav class='menu-fixed' [ngClass]='{"active" : scrolled}'>
     <!--

@@ -1,9 +1,12 @@
 <nav>
-    <a [routerLink]='["profile"]'>Profile</a>
-    <a [routerLink]='["posts"]'>Posts</a>
-    <a [routerLink]='["saved"]'>Saved</a>
-    <a [routerLink]='["options"]'>Options</a>
+    <a [routerLink]='["profile"]'>Profile <img src="../../assets/icons/user.svg" alt=""></a>
+    <a [routerLink]='["posts"]'>Posts <img src="../../assets/icons/post-edit.svg" alt=""></a>
+    <a [routerLink]='["saved"]'>Saved <img src="../../assets/icons/post-edit.svg" alt=""></a>
+    <a [routerLink]='["options"]'>Options <img src="../../assets/icons/settings.svg" alt=""></a>
 </nav>
-<div class="router-wrap">
-    <router-outlet></router-outlet>    
-</div>
+<main>
+    <div class="router-wrap">
+        <router-outlet></router-outlet>    
+    </div>    
+</main>
+

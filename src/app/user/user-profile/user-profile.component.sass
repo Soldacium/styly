@@ -1,25 +1,33 @@
 main
+    display: flex
+    flex-wrap: wrap
 
 section
-    width: 100%
+    
     position: relative
     margin-bottom: 3rem
 
 .basic
     display: flex
+    flex-direction: column
     flex-wrap: wrap
+    flex: 1 1 27rem
+    padding: 1rem
+    padding-top: 12rem
 
     .image
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         overflow: hidden;
         background-color: rgb(247, 247, 247);
         z-index: 8;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative
-        flex: 2 1 30rem
+        position: absolute
+        border-radius: 50%
+        top: -8rem
+        left: 6rem
 
         img
             position: relative;
@@ -35,15 +43,21 @@ section
 
     .info
         display: flex
-        justify-content: center
-        align-items: center
         flex-wrap: wrap
-        flex: 3 1 30rem
+        flex-direction: column
+
         app-input-regular
             margin: 0.5rem
+            width: 100%
             
 .desc
-    height: 30vh
+    height: 100vh
+    flex: 3 1 27rem
+    padding: 1rem
+    padding-bottom: 6rem
+    box-shadow: var(--smooth-shadow-big)
+    overflow: hidden
     quill-editor
+        height: 100%
         
         

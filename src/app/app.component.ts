@@ -13,7 +13,7 @@ import { slideInAnimation } from './animations';
 export class AppComponent {
   title = 'blogRedo';
 
-  constructor(private router: Router){
+  constructor(public router: Router){
 
   }
 

@@ -65,7 +65,7 @@ section
 
     .login-panel
         position: absolute
-        width: 25vw
+        width: calc(15rem + 15vw)
         background-color: #fff
         height: 100%
         display: flex
@@ -87,7 +87,7 @@ section
 .register
     .register-panel
         position: absolute
-        width: 25vw
+        width: calc(15rem + 15vw)
         height: 100%
         background-color: #3a3a3a
         display: flex
@@ -104,3 +104,9 @@ section
         app-input-regular
             margin: 1rem 0
             min-width: 60%
+
+@media screen and ( max-width: 800px )
+    .login-panel
+
+    .register-panel
+    

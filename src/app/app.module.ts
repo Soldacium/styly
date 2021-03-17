@@ -24,6 +24,8 @@ import { UserOptionsComponent } from './user/user-options/user-options.component
 import { QuillModule } from 'ngx-quill';
 import { EditPostComponent } from './user/edit-post/edit-post.component';
 import { PostThumbnailEditComponent } from './shared/components/post-thumbnail-edit/post-thumbnail-edit.component';
+import { SearchPostsComponent } from './shared/components/search-posts/search-posts.component';
+import { SelectComponent } from './shared/components/select/select.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { PostThumbnailEditComponent } from './shared/components/post-thumbnail-e
     UserSavedComponent,
     UserOptionsComponent,
     EditPostComponent,
-    PostThumbnailEditComponent
+    PostThumbnailEditComponent,
+    SearchPostsComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
