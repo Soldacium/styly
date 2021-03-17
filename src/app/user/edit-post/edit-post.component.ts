@@ -37,6 +37,12 @@ export class EditPostComponent implements OnInit {
     hasEvent: this.posted
   };
 
+  sectionsOpen = {
+    basics: true,
+    content: true,
+    reco: true
+  }
+
   constructor(){}
 
   ngOnInit(): void {

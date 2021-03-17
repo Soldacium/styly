@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 
 @Component({
@@ -13,7 +13,11 @@ import { slideInAnimation } from './animations';
 export class AppComponent {
   title = 'blogRedo';
 
-  prepareRoute(outlet: RouterOutlet): RouterOutlet {
+  constructor(private router: Router){
+
+  }
+
+  prepareRoute(outlet: RouterOutlet, ): RouterOutlet {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }
