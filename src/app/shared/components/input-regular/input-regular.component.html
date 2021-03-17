@@ -1,5 +1,17 @@
 <div class="input">
-    <input class="input__field" [type]="type"  [name]="label" [id]='label' required 
-    [(ngModel)]="inputModel" (ngModelChange)="inputModelChange.emit(inputModel)" />
-    <label [for]="label" class="input__label">{{label}}</label>
+    <input 
+    [style.border-color] = 'borderColor'
+    [style.color] = 'borderColor'
+    [type]="type"  
+    [name]="label" 
+    [id]='label' 
+    [(ngModel)]="inputModel" 
+    (ngModelChange)="inputModelChange.emit(inputModel)" 
+    required 
+    class="input__field" />
+    <label 
+    [for]="label" 
+    [style.color] = 'borderColor'
+    [style.background-color] = 'backgroundColor'
+    class="input__label" >{{label}}</label>
 </div>

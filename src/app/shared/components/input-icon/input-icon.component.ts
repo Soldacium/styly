@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-search-posts',
-  templateUrl: './search-posts.component.html',
-  styleUrls: ['./search-posts.component.sass']
+  selector: 'app-input-icon',
+  templateUrl: './input-icon.component.html',
+  styleUrls: ['./input-icon.component.sass']
 })
-export class SearchPostsComponent {
+export class InputIconComponent {
 
   @Input() placeholder = '';
   @Input() label = '';

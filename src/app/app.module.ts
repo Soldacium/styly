@@ -26,6 +26,7 @@ import { EditPostComponent } from './user/edit-post/edit-post.component';
 import { PostThumbnailEditComponent } from './shared/components/post-thumbnail-edit/post-thumbnail-edit.component';
 import { SearchPostsComponent } from './shared/components/search-posts/search-posts.component';
 import { SelectComponent } from './shared/components/select/select.component';
+import { InputIconComponent } from './shared/components/input-icon/input-icon.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SelectComponent } from './shared/components/select/select.component';
     EditPostComponent,
     PostThumbnailEditComponent,
     SearchPostsComponent,
-    SelectComponent
+    SelectComponent,
+    InputIconComponent
   ],
   imports: [
     BrowserModule,

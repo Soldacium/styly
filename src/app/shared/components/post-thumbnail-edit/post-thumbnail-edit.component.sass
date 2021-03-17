@@ -10,6 +10,7 @@ main
     border: 1px solid #ccc
     overflow: hidden
     position: relative
+    padding: 0.5rem
 
     &:hover
         .card
@@ -30,8 +31,8 @@ main
         position: absolute;
         right: -5rem
         bottom: -5rem
-        width: 20rem;
-        height: 20rem;
+        width: 16rem;
+        height: 16rem;
         background-color: var(--colorAccent3);
         transition: 0.5s;
         display: flex;
@@ -41,8 +42,8 @@ main
         transition: 0.5s ease;
 
         .image-borders
-            width: 14rem;
-            height: 14rem;
+            width: 12rem;
+            height: 12rem;
             position: relative;
             display: flex;
             justify-content: center;
@@ -59,7 +60,7 @@ main
 
     .card
         position: absolute
-        width: 40%;
+        width: calc(40% + 2rem);
         height: 100%;
         bottom: 0
         left: 0
@@ -69,6 +70,7 @@ main
         transition: all .5s ease;
         border-radius: 10px;
         box-shadow: 5px 5px 5px #3a3a3a00;
+        padding: 1rem
 
         .buttons
             top: -50%;
@@ -78,6 +80,9 @@ main
             top: 50%
             left: 50%
 
+            span
+                font-size: 1.6rem
+
             
 
     .text
@@ -86,6 +91,9 @@ main
         position: absolute
         transform: translate(-50%,-50%)
         transition: 0.5s ease
+        padding: 0 1rem
+
+
 
     .buttons
         display: flex

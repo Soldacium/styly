@@ -8,9 +8,13 @@ import anime from 'animejs';
 })
 export class LoginComponent implements OnInit {
 
+  backgroundColor = '#3a3a3a';
+  borderColor = '#fff'
+
   numOfSimpleThumbnails = 42;
   simpleThumbnails: number[] = [];
   simpleThumbnailsNodes!: NodeList;
+
   public loginCreds = {
     email: '',
     password: ''
@@ -31,12 +35,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.simpleThumbnails = Array(this.numOfSimpleThumbnails).fill(0).map((x, i) => i);
-
     this.addEventListeners();
   }
 
   addEventListeners(){
     window.addEventListener('scroll', (e) => {
+
       if ((window.scrollY / window.innerHeight) > 0.75 && !this.doneAnimations.background){
         this.animateThumbnailsForward();
         this.doneAnimations.background = true;

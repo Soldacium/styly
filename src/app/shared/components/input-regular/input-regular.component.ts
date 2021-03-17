@@ -12,6 +12,8 @@ export class InputRegularComponent {
   @Input() type: 'text'|'number'|'email'|'password'|'datetime-local' = 'text';
   @Input() darkMode = false;
   @Input() textColor = 'black';
+  @Input() backgroundColor = '#fff';
+  @Input() borderColor = '#000'
 
   @Input() inputModel = '';
   @Output() inputModelChange = new EventEmitter<string>();
