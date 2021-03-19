@@ -42,10 +42,9 @@ export class UserProfileComponent implements OnInit {
     const reader = new FileReader();
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
-    reader.onload = (_event) => {
+    reader.onload = (event) => {
       this.imgURL = reader.result;
     };
-
     this.file = files[0];
   }
 

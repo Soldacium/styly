@@ -21,16 +21,17 @@ export class PostComponent implements OnInit {
     imageUrl: 'assets/images/BGs/explosion1.png',
     hasEvent: false
   };
+
   isWritingResponse = '';
   commentInput = '';
   responseInput = '';
   constructor() { }
 
   ngOnInit(): void {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
   }
 
-  postResponse(comment: Comment){
+  postResponse(comment: Comment): void {
 
   }
 

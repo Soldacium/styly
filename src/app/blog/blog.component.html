@@ -61,27 +61,9 @@
             Explore
         </h2>
     </header >
-    <!--
-    <section class='postsLoader'  [ngClass]='(isEmpty(this.postssImages))?"loading":"done"'>
-        <div class="cm-spinner"></div>
-
-
-    </section>        
-    -->
 
     <section class="allPosts" >
-        <!--
-        <div class="post" *ngFor='let post of postss | async; index as i' (click)='viewPost(post)'>
-            <img src='{{postssImages[post.imageID]}}' alt="Post image" (load)='loadedPic(i)' [ngClass]='loadedImages[i]?"active":"inactive"'>
-            <div class="imagePlaceholder" *ngIf='!loadedImages[i]'></div>
-            <div class="text">
-                <h4>{{post.title}}</h4>
-                <h5 style="color: rgb(58, 58, 58);">By {{post.author}}</h5>
-                <p>{{post.date}}</p>
-            </div>
-        </div>            
-        -->
-        
+   
         <app-post-thumbnail 
         *ngFor='let post of posts' (click)='viewPost(post)'
         [image]="'assets/images/posts-BG/cool6.jpg'"
@@ -89,10 +71,6 @@
         [title]="'How does achive one greatness?'"
         [date]="'20/06/2020'"
         [author]="'By Robin Martin'"></app-post-thumbnail>
-        <!--
-        <app-button-regular [text]="'Load more'"></app-button-regular>            
-        -->
-
         <app-paginator [pageSize]="10" [totalSize]="100"></app-paginator>        
     </section>
 

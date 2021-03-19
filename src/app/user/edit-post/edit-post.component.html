@@ -20,7 +20,6 @@
             [(inputModel)]="currentPost.title" 
             [type]="'text'"></app-input-regular>               
         </div>
-     
     </div>
 
     <div class="card" >
@@ -32,10 +31,8 @@
         </div>
         <div class="card-content" [ngClass]="{'hidden': !sectionsOpen.content}">
             <quill-editor></quill-editor>
-        </div>
-        
+        </div> 
     </div>
-<!-- upload to quickComponents -->
     <div class="card">
         <div class="hide">Recognizable</div>
         <div class="card-content">
@@ -55,7 +52,5 @@
                 <label for="html">Related to event</label>
             </div>              
         </div>
-      
     </div>
-
 </main>

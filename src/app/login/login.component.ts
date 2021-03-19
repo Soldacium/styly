@@ -9,7 +9,7 @@ import anime from 'animejs';
 export class LoginComponent implements OnInit {
 
   backgroundColor = '#3a3a3a';
-  borderColor = '#fff'
+  borderColor = '#fff';
 
   numOfSimpleThumbnails = 42;
   simpleThumbnails: number[] = [];
@@ -38,14 +38,12 @@ export class LoginComponent implements OnInit {
     this.addEventListeners();
   }
 
-  addEventListeners(){
+  addEventListeners(): void {
     window.addEventListener('scroll', (e) => {
-
       if ((window.scrollY / window.innerHeight) > 0.75 && !this.doneAnimations.background){
         this.animateThumbnailsForward();
         this.doneAnimations.background = true;
       }
-
       if ((window.scrollY / window.innerHeight) < .75 && this.doneAnimations.background){
         this.animateThumbnailsBackwards();
         this.doneAnimations.background = false;
@@ -53,9 +51,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  animateThumbnailsForward(){
+  animateThumbnailsForward(): void {
     this.simpleThumbnailsNodes = document.querySelectorAll('.simpleThumbnail');
-    console.log(this.simpleThumbnailsNodes);
     this.simpleThumbnailsNodes.forEach((thumb, i) => {
       anime({
         targets: thumb,
@@ -68,18 +65,14 @@ export class LoginComponent implements OnInit {
   }
 
   animateThumbnailsBackwards(){
-    // this.simpleThumbnailsNodes = document.querySelectorAll('.simpleThumbnail');
-
     this.simpleThumbnailsNodes.forEach((thumb, i) => {
       anime({
         targets: thumb,
         duration: 500,
         delay: i * 25,
-        rotateX: [180,0],
+        rotateX: [180, 0],
         easing: 'easeInOutCirc'
       });
     });
   }
-
-
 }

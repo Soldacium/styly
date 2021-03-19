@@ -68,7 +68,7 @@ export class BlogComponent implements OnInit {
 
   }
 
-  animateUnflip(){
+  animateUnflip(): void {
     this.cards.forEach((card, i) => {
       anime({
         targets: card,
@@ -77,10 +77,9 @@ export class BlogComponent implements OnInit {
         rotateY: [180, 0],
         easing: 'easeInOutCirc'
       });
-
     });
 
-    this.featuredPostsElements.forEach((post,i)=>{
+    this.featuredPostsElements.forEach((post, i) => {
       anime({
         targets: post,
         duration: 500,
@@ -88,23 +87,22 @@ export class BlogComponent implements OnInit {
         top: ['-100%', '0%'],
         easing: 'easeInOutCirc'
       });
-      console.log(this.featuredPostsElements);
     });
   }
 
-  prev(){
+  prev(): void {
 
   }
 
-  next(){
+  next(): void {
 
   }
 
-  goToPage(page: number){
+  goToPage(page: number): void {
 
   }
 
-  viewPost(post: any){
+  viewPost(post: any): void {
     this.router.navigate(['/post']);
   }
 }

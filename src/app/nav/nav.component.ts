@@ -12,24 +12,24 @@ export class NavComponent implements OnInit {
   scrolled = false;
   fillElement1!: HTMLElement;
   fillElement2!: HTMLElement;
+
   ngOnInit(): void {
     this.fillElement1 = document.querySelector('.fill1') as HTMLElement;
     this.fillElement2 = document.querySelector('.fill2') as HTMLElement;
     this.addListeners();
   }
 
-  addListeners(){
-    
+  addListeners(): void {
     window.addEventListener('scroll', (e) => {
-      if(window.scrollY > 60){
+      if (window.scrollY > 60){
         this.scrolled = true;
-      }else{
+      } else {
         this.scrolled = false;
       }
     });
   }
 
-  circleToSquare() :void{
+  circleToSquare(): void{
     anime({
       targets: this.fillElement1,
       width: ['3rem', '180vw'],
@@ -50,7 +50,7 @@ export class NavComponent implements OnInit {
     });
   }
 
-  squareToCircle() :void{
+  squareToCircle(): void{
     anime({
       targets: this.fillElement1,
       width: ['180vw', '3rem'],
@@ -75,12 +75,11 @@ export class NavComponent implements OnInit {
 
   change(): void {
     this.active = !this.active;
-    if(this.active){
+    if (this.active){
       this.circleToSquare();
-    }else{
+    } else {
       this.squareToCircle();
     }
-    
   }
 
 
