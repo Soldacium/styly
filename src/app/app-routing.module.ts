@@ -9,6 +9,7 @@ import { UserPostsComponent } from './user/user-posts/user-posts.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserSavedComponent } from './user/user-saved/user-saved.component';
 import { UserComponent } from './user/user.component';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent,
+    canActivate: [AngularFireAuthGuard],
     children: [
       {
         path: 'profile',

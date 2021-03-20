@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import anime from 'animejs';
+import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-nav',
@@ -13,11 +16,26 @@ export class NavComponent implements OnInit {
   fillElement1!: HTMLElement;
   fillElement2!: HTMLElement;
 
+  user!: firebase.User | null;
+
+  constructor(private authService: AuthService){
+
+  }
+
   ngOnInit(): void {
     this.fillElement1 = document.querySelector('.fill1') as HTMLElement;
     this.fillElement2 = document.querySelector('.fill2') as HTMLElement;
     this.addListeners();
+
+    this.authService.authUser().subscribe(user => {
+      this.user = user;
+    });
   }
+
+  kek(){
+    console.log(this.user);
+  }
+
 
   addListeners(): void {
     window.addEventListener('scroll', (e) => {

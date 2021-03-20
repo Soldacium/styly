@@ -11,6 +11,9 @@
 
         <div class="login-panel panel" [ngClass]="{'active': !doneAnimations.background}">
             <h1>LOGIN</h1>
+
+            <button (click)="loginWithGoogle()">Login with Google</button>
+
             <app-input-regular
             [label]="'Name'" 
             [placeholder]="'Name'" 
@@ -25,7 +28,7 @@
             [type]="'text'"
             [darkMode]='false'></app-input-regular>
 
-            <app-button-regular [text]="'Get going'" (click)='animateThumbnailsForward()'></app-button-regular>
+            <app-button-regular [text]="'Get going'" (click)='loginWithCredentials()'></app-button-regular>
         </div>
     </section>
 
@@ -76,7 +79,7 @@
 
 
 
-            <app-button-regular [text]="'Start your journey'"></app-button-regular>
+            <app-button-regular [text]="'Start your journey'" (click)='registerWithCredentials()'></app-button-regular>
         </div>
     </section>
 </main>

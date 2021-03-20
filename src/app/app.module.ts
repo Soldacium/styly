@@ -27,6 +27,11 @@ import { PostThumbnailEditComponent } from './shared/components/post-thumbnail-e
 import { SearchPostsComponent } from './shared/components/search-posts/search-posts.component';
 import { SelectComponent } from './shared/components/select/select.component';
 import { InputIconComponent } from './shared/components/input-icon/input-icon.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -58,7 +63,11 @@ import { InputIconComponent } from './shared/components/input-icon/input-icon.co
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import anime from 'animejs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -31,11 +32,24 @@ export class LoginComponent implements OnInit {
     background: false,
   };
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.simpleThumbnails = Array(this.numOfSimpleThumbnails).fill(0).map((x, i) => i);
     this.addEventListeners();
+  }
+
+
+  loginWithCredentials(){
+    this.authService.loginWithCredentials(this.loginCreds.email,this.loginCreds.password);
+  }
+
+  loginWithGoogle(){
+    this.authService.loginWithGoogle();
+  }
+
+  registerWithCredentials(){
+    this.authService.registerWithCredentials(this.registerCreds.email,this.registerCreds.password1,this.registerCreds.username);
   }
 
   addEventListeners(): void {
