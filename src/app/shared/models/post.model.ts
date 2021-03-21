@@ -7,7 +7,6 @@ export interface Post {
     content: string;
     summary: string;
     comments: Comment[];
-    imageUrl: string;
-    hasEvent: Boolean;
     author: string;
+    _id: string;
 }

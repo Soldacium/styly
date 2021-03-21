@@ -18,8 +18,7 @@ export class PostComponent implements OnInit {
     content: '',
     comments: [],
     summary: '',
-    imageUrl: 'assets/images/BGs/explosion1.png',
-    hasEvent: false
+    _id: ''
   };
 
   isWritingResponse = '';
