@@ -8,5 +8,6 @@ export interface Post {
     summary: string;
     comments: Comment[];
     author: string;
+    imgUrl: string;
     _id: string;
 }

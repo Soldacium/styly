@@ -18,7 +18,8 @@ export class PostComponent implements OnInit {
     content: '',
     comments: [],
     summary: '',
-    _id: ''
+    _id: '',
+    imgUrl: ''
   };
 
   isWritingResponse = '';
