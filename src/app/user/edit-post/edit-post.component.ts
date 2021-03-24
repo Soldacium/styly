@@ -39,8 +39,8 @@ export class EditPostComponent implements OnInit {
 
   sectionsOpen = {
     basics: true,
-    content: true,
-    reco: true
+    content: false,
+    reco: false
   }
 
   constructor(){}

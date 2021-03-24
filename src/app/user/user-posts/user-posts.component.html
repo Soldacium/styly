@@ -1,5 +1,9 @@
 <main>
     <app-search-posts></app-search-posts>
+    <button class="add-post-button" [routerLink]='["/user/edit-post"]'>
+        <p>New post</p>
+        <img src="../../../assets/icons/add.svg" alt="">
+    </button>
     <app-post-thumbnail-edit
     *ngFor='let post of posts'
     class="featured-post"

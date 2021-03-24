@@ -34,8 +34,13 @@
         </div> 
     </div>
     <div class="card">
-        <div class="hide">Recognizable</div>
-        <div class="card-content">
+        <div class="hide" (click)="sectionsOpen.reco = !sectionsOpen.reco" >Recognizable
+            <img 
+            [ngClass]="{'rotated': !sectionsOpen.reco}"
+            src="../../../assets/icons/arrow-right.svg" 
+            alt="">
+        </div>
+        <div class="card-content" [ngClass]="{'hidden': !sectionsOpen.reco}">
             <div class="tags">
                 <button class="tag" *ngFor='let tag of postTags' (click)='pickTag(tag)' [ngClass]="(chosenTag === tag?'active':'naah')">
                     <div>{{tag}}</div>
@@ -53,4 +58,5 @@
             </div>              
         </div>
     </div>
+    <app-button-regular [text]="'Start your journey'"></app-button-regular>
 </main>

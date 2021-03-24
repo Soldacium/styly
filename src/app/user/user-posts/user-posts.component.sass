@@ -6,6 +6,28 @@ main
     flex-wrap: wrap
     width: 100%
 
+    .add-post-button
+        flex: 1 1 25rem
+        height: 25vh
+        border: 1px solid #ccc
+        margin: 0.25rem
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        cursor: pointer
+        transition: 0.2s ease
+
+        &:hover
+            background: #ccc
+        p
+            font-size: 1.5rem
+            font-weight: 600
+
+        img
+            height: 2rem
+    
+
     app-search-posts
         width: 100%
         margin: 0.25rem
