@@ -4,13 +4,14 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { Observable } from 'rxjs';
+import { User } from '../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  user!: Observable<firebase.User | null>;
+  private user!: Observable<firebase.User | null>;
   userInfo!: firebase.User;
 
   constructor(
@@ -32,46 +33,55 @@ export class AuthService {
     return this.user;
   }
 
-  loginWithCredentials(email: string, password: string): void {
-    this.afAuth.signInWithEmailAndPassword(email, password).then(user => {
-      this.router.navigate(['/user/profile'])
-    });
-  }
-
-  loginWithGoogle(){
-    this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  }
-
   registerWithCredentials(email: string, password: string, username: string): void {
     this.afAuth.createUserWithEmailAndPassword(email, password).then(user => {
-      const path = `users/${user.user?.uid}`;
-      const newUser = this.makeUserData(email, username);
+      const registeredUserID = user.user ? user.user.uid : '';
+      const path = `users/${registeredUserID}`;
+      const newUserData = this.makeUserData(email, username, registeredUserID);
       try{
-        this.db.object(path).set(newUser).then(value => {
-          this.loginWithCredentials(email,password);
+        this.db.object(path).set(newUserData).then(res => {
+          this.loginWithCredentials(email, password);
         });
-      } catch(error){
+      } catch (error){
         console.log(error);
       }
     });
   }
 
-  private makeUserData(email: string, username: string){
+  registerWithGoogle(){
+
+  }
+
+  private makeUserData(email: string, username: string, userID: string): User {
     return {
-      username: username,
+      username,
       name: '',
-      email: email,
+      email,
       facebook: '',
       instagram: '',
       linkedIn: '',
       description: '',
       postsIDs: [],
       followers: 0,
-      uid: ''
+      uid: userID
     };
   }
 
-  registerWithGoogle(){
-
+  loginWithCredentials(email: string, password: string): void {
+    this.afAuth.signInWithEmailAndPassword(email, password).then(user => {
+      this.router.navigate(['/user/profile']);
+    });
   }
+
+  loginWithGoogle(): void {
+    this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
+  logOut(): void {
+    this.afAuth.signOut().then(res => {
+      this.router.navigate(['/']);
+    })
+  }
+
+
 }

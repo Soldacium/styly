@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { User } from '../shared/models/user.model';
 import { AuthService } from './auth.service';
 
@@ -29,7 +29,7 @@ export class UserService {
     return this.storage.ref(`profileImg/${userID}`).getDownloadURL();
   }
 
-  updateUserPicture(img: File,userID: string){
+  updateUserPicture(img: File,userID: string): AngularFireUploadTask{
     return this.storage.upload(`profileImg/${userID}`, img);
   }
 

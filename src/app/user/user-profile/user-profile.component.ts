@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit {
   public message!: string;
 
   file!: File;
-  posted = false;
+  updating = false;
 
   user: User = {
     name: '',
@@ -30,21 +30,37 @@ export class UserProfileComponent implements OnInit {
     uid: ''
   };
 
+  profileViewMode: 'edit' | 'view' = 'view';
+
   constructor(
     private userService: UserService,
     private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.getUser();
   }
 
-  getUser(){
+  getUser(): void {
     this.authService.authUser().subscribe(user => {
-      this.userService.getUser(user?.uid || "").valueChanges().subscribe((userData: User | null) => {
-        if(userData){
+      this.userService.getUser(user?.uid || '').valueChanges().subscribe((userData: User | null) => {
+        if (userData){
           this.user = userData;
         }
       });
     });
+  }
+
+  changeProfileViewMode(): void{
+    if (this.profileViewMode === 'view'){
+      this.profileViewMode = 'edit';
+    } else {
+      this.profileViewMode = 'view';
+      // this.updateProfile();
+    }
+  }
+
+  kek(){
+    
   }
 
   preview(files: any): void {
@@ -67,5 +83,24 @@ export class UserProfileComponent implements OnInit {
     };
     this.file = files[0];
   }
+
+  updateProfile(): void{
+    this.updating = true;
+    this.userService.updateUser(this.user).then(user => {
+      console.log(user);
+      if (this.file){
+        this.userService.updateUserPicture(this.file, this.user.uid).then(pic => {
+          console.log(pic);
+          this.updating = false;
+        });
+      }else{
+        this.updating = false;
+      }
+    });
+  }
+
+
+
+
 
 }

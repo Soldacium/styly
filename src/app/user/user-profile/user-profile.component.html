@@ -54,5 +54,7 @@
 
         </section>        
     </div>
+    <app-button-regular [text]="'Edit profile'" (onclick)='changeProfileViewMode()' *ngIf="profileViewMode === 'view'"></app-button-regular>
+    <app-button-regular [text]="'Edit profile'" (onclick)='changeProfileViewMode()' *ngIf="profileViewMode === 'edit'"></app-button-regular>
 
 </main>
