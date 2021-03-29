@@ -21,7 +21,6 @@ export class AuthService {
       this.user.subscribe(user => {
         if (user){
           this.userInfo = user;
-          console.log(user);
           localStorage.setItem('user', JSON.stringify(this.userInfo));
         } else {
           localStorage.setItem('user', 'null');
@@ -35,7 +34,7 @@ export class AuthService {
 
   loginWithCredentials(email: string, password: string): void {
     this.afAuth.signInWithEmailAndPassword(email, password).then(user => {
-      console.log(user);
+      this.router.navigate(['/user/profile'])
     });
   }
 
@@ -45,8 +44,31 @@ export class AuthService {
 
   registerWithCredentials(email: string, password: string, username: string): void {
     this.afAuth.createUserWithEmailAndPassword(email, password).then(user => {
-      console.log(user);
+      const path = `users/${user.user?.uid}`;
+      const newUser = this.makeUserData(email, username);
+      try{
+        this.db.object(path).set(newUser).then(value => {
+          this.loginWithCredentials(email,password);
+        });
+      } catch(error){
+        console.log(error);
+      }
     });
+  }
+
+  private makeUserData(email: string, username: string){
+    return {
+      username: username,
+      name: '',
+      email: email,
+      facebook: '',
+      instagram: '',
+      linkedIn: '',
+      description: '',
+      postsIDs: [],
+      followers: 0,
+      uid: ''
+    };
   }
 
   registerWithGoogle(){

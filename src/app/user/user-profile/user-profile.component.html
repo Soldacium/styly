@@ -1,54 +1,58 @@
 <main>
-    <section class="basic">
-        <div class="image">
-            <input #file type="file" id="selectedFile" style="display: none;"
-            accept='image/*' 
-            (change)="preview(file.files)"/>
-            <button (click)="file.click()"></button>
-            <img [src]="imgURL" *ngIf="imgURL">
-        </div>
-        <div class="info">
-            <!--
-            <app-input-regular
-            [label]="'Name'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="profile.username" 
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>     
-            <app-input-regular
-            [label]="'Name'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="profile.username" 
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>   
-            <app-input-regular
-            [label]="'Name'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="profile.username" 
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>   
-            <app-input-regular
-            [label]="'Name'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="profile.username" 
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>   
-            <app-input-regular
-            [label]="'Name'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="profile.username" 
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>                  
-            -->
-            <h1>Wojciech Bulek</h1>
-            <p>Soldacium</p>
- 
-        </div>
-    </section>
-    <section class="desc">
-        <quill-editor></quill-editor>
-    </section>
-    <section class="stats">
+    <div class="base">
+        <section class="basic">
+            <div class="image">
+                <input #file type="file" id="selectedFile" style="display: none;"
+                accept='image/*' 
+                (change)="preview(file.files)"/>
+                <button (click)="file.click()"></button>
+                <img [src]="imgURL" *ngIf="imgURL">
+            </div>
+            <div class="info">
+                <!--
+                <app-input-regular
+                [label]="'Name'" 
+                [placeholder]="'Name'" 
+                [(inputModel)]="profile.username" 
+                [type]="'text'"
+                [darkMode]='false'></app-input-regular>     
+                <app-input-regular
+                [label]="'Name'" 
+                [placeholder]="'Name'" 
+                [(inputModel)]="profile.username" 
+                [type]="'text'"
+                [darkMode]='false'></app-input-regular>   
+                <app-input-regular
+                [label]="'Name'" 
+                [placeholder]="'Name'" 
+                [(inputModel)]="profile.username" 
+                [type]="'text'"
+                [darkMode]='false'></app-input-regular>   
+                <app-input-regular
+                [label]="'Name'" 
+                [placeholder]="'Name'" 
+                [(inputModel)]="profile.username" 
+                [type]="'text'"
+                [darkMode]='false'></app-input-regular>   
+                <app-input-regular
+                [label]="'Name'" 
+                [placeholder]="'Name'" 
+                [(inputModel)]="profile.username" 
+                [type]="'text'"
+                [darkMode]='false'></app-input-regular>                  
+                -->
+                <h1>{{user.name}}</h1>
+                <p>{{user.username}}</p>
 
-    </section>
+    
+            </div>
+        </section>
+        <section class="desc">
+            <quill-editor [(ngModel)]="user.description"></quill-editor>
+        </section>
+        <section class="stats">
+
+        </section>        
+    </div>
+
 </main>

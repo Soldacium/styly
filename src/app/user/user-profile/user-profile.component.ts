@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,17 +17,34 @@ export class UserProfileComponent implements OnInit {
   file!: File;
   posted = false;
 
-  profile = {
+  user: User = {
     name: '',
     username: '',
-    linkInsta: '',
-    linkFb: '',
-    linkLinkedIn: ''
-  }
+    email: '',
+    facebook: '',
+    instagram: '',
+    linkedIn: '',
+    description: '',
+    postsIDs: [],
+    followers: 0,
+    uid: ''
+  };
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  getUser(){
+    this.authService.authUser().subscribe(user => {
+      this.userService.getUser(user?.uid || "").valueChanges().subscribe((userData: User | null) => {
+        if(userData){
+          this.user = userData;
+        }
+      });
+    });
   }
 
   preview(files: any): void {
