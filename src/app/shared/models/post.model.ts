@@ -2,12 +2,12 @@ import { Comment } from './comment.model';
 
 export interface Post {
     title: string;
+    type: string;
     tags: string[];
     date: string;
     content: string;
     summary: string;
     comments: Comment[];
-    author: string;
-    imgUrl: string;
-    _id: string;
+    authorID: string;
+    uid: string;
 }

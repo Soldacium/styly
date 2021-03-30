@@ -11,7 +11,7 @@ main
     .card
         width: 100%
         padding: 5rem
-        box-shadow: var(--smooth-shadow-small)
+        box-shadow: 0 3px 3px 0px #f3f3f3
         margin: 1rem 0
         position: relative
 
@@ -26,7 +26,7 @@ main
             top: 0
             width: 100%
             background-color: #fafafa
-            padding: 1.5rem
+            padding: 1rem
             z-index: 50
             transition: 0.2s ease
 
@@ -138,8 +138,56 @@ main
             
 
             &.active
-                color: white;
-                background-color: var(--colorPrimary);
+                background-color: var(--colorAccent);
+                font-size: 600;
+
+                span
+                    filter: invert(100%);
+    .types
+        display: flex;
+        align-items: center;
+        align-content: center;
+        width: 100%;
+        padding: 1rem;
+        flex-wrap: wrap;
+
+        .type
+            padding: 0.6rem 1rem;
+            border: none;
+            display: flex;
+            font-size: 1rem;
+            border-radius: 0.6rem;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.699);
+            border: none;
+            box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.055) inset;
+            background-color: rgb(248, 248, 248);
+            margin: 0.5rem;
+            margin-left: 0;
+            transition: 0.3s ease;
+            align-items: center;
+            cursor: pointer;
+
+            &:focus
+                outline: none;
+            
+
+            span
+                filter: invert(10%);
+            
+
+            span
+                margin-right: 0.5rem;
+                height: 1.5rem;
+                width: 1.5rem;
+                border: none;
+                transition: 0.3s ease;
+                background-size: cover;
+            
+
+            &.active
+                
+                background-color: var(--colorAccent);
                 font-size: 600;
 
                 span

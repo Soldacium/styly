@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/shared/models/post.model';
 
 @Component({
   selector: 'app-edit-post',
@@ -14,7 +15,10 @@ export class EditPostComponent implements OnInit {
   file!: File;
   posted = false;
 
-  chosenTag = '';
+  chosenType = '';
+  postTypes: string[] = ['Amazement', 'Essay', 'Guide', 'Something' ];
+
+  chosenTags: string[] = [];
   postTags: string[] = ['Party', 'Meeting', 'Concert', 'Happening', 'Opening', ];
 
   addRelatedEvent = true;
@@ -24,32 +28,29 @@ export class EditPostComponent implements OnInit {
     description: '',
     title: '',
     time: ''
-  }
+  };
 
-  currentPost = {
+  post: Post = {
     title: '',
     tags: [''],
     date: '',
     content: '',
     comments: [],
     summary: '',
-    imageUrl: '',
-    hasEvent: this.posted
+    uid: '',
+    authorID: '',
+    type: ''
   };
 
   sectionsOpen = {
     basics: true,
     content: false,
     reco: false
-  }
+  };
 
   constructor(){}
 
   ngOnInit(): void {
-  }
-
-  openPost(post: number): void {
-
   }
 
   postPost(): void {
@@ -74,7 +75,17 @@ export class EditPostComponent implements OnInit {
     this.file = files[0];
   }
 
-  pickTag(type: string): void {
-    this.chosenTag === type ? this.chosenTag = '' : this.chosenTag = type;
+  pickType(type: string): void {
+    this.chosenType === type ? this.chosenType = '' : this.chosenType = type;
   }
+
+  pickTag(tag: string): void {
+    if(this.chosenTags.includes(tag)){
+      this.chosenTags.splice(this.chosenTags.indexOf(tag),1);
+    } else {
+      this.chosenTags.push(tag);
+    }
+  }
+
+
 }

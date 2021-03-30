@@ -14,17 +14,25 @@ export class PostComponent implements OnInit {
     title: 'Title of first post',
     tags: ['ayy','2'],
     date: '21/05/2015',
-    author:'A random author',
+    authorID:'A random author',
     content: '',
     comments: [],
     summary: '',
-    _id: '',
-    imgUrl: ''
+    uid: '',
+    type: ''
+  };
+
+  postImg = '';
+
+  author = {
+    imgUrl: '',
+    name: 'A random author'
   };
 
   isWritingResponse = '';
   commentInput = '';
   responseInput = '';
+
   constructor() { }
 
   ngOnInit(): void {

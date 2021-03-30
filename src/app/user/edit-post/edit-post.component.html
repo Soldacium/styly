@@ -17,13 +17,13 @@
             <app-input-regular
             [label]="'Title'" 
             [placeholder]="'Title'" 
-            [(inputModel)]="currentPost.title" 
+            [(inputModel)]="post.title" 
             [type]="'text'"></app-input-regular>               
         </div>
     </div>
-
     <div class="card" >
-        <div class="hide" (click)="sectionsOpen.content = !sectionsOpen.content" >Content 
+        <div class="hide" (click)="sectionsOpen.content = !sectionsOpen.content">
+            Content 
             <img 
             [ngClass]="{'rotated': !sectionsOpen.content}"
             src="../../../assets/icons/arrow-right.svg" 
@@ -34,28 +34,25 @@
         </div> 
     </div>
     <div class="card">
-        <div class="hide" (click)="sectionsOpen.reco = !sectionsOpen.reco" >Recognizable
+        <div class="hide" (click)="sectionsOpen.reco = !sectionsOpen.reco">
+            Recognizable
             <img 
             [ngClass]="{'rotated': !sectionsOpen.reco}"
             src="../../../assets/icons/arrow-right.svg" 
             alt="">
         </div>
         <div class="card-content" [ngClass]="{'hidden': !sectionsOpen.reco}">
+            <div class="types">
+                <button class="type" *ngFor='let type of postTypes' (click)='pickType(type)' [ngClass]="chosenType === type ?'active':'naah'">
+                    <div>{{type}}</div>
+                </button>
+            </div>
             <div class="tags">
-                <button class="tag" *ngFor='let tag of postTags' (click)='pickTag(tag)' [ngClass]="(chosenTag === tag?'active':'naah')">
+                <button class="tag" *ngFor='let tag of postTags' (click)='pickTag(tag)' [ngClass]="(chosenTags.includes(tag)?'active':'naah')">
                     <div>{{tag}}</div>
                 </button>
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Summany of the post"></textarea>
-            
-            <div class="checkbox">
-                <input 
-                type="checkbox" 
-                id="html"   
-                [checked]="addRelatedEvent"
-                (change)="addRelatedEvent = !addRelatedEvent">
-                <label for="html">Related to event</label>
-            </div>              
+            <textarea name="" id="" cols="30" rows="10" placeholder="Summany of the post" [(ngModel)]='post.summary'></textarea>            
         </div>
     </div>
     <app-button-regular [text]="'Start your journey'"></app-button-regular>

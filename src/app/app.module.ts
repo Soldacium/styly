@@ -32,6 +32,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { LoadingComponent } from './shared/components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     PostThumbnailEditComponent,
     SearchPostsComponent,
     SelectComponent,
-    InputIconComponent
+    InputIconComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

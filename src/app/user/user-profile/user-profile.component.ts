@@ -45,8 +45,6 @@ export class UserProfileComponent implements OnInit {
       this.userService.getUser(user?.uid || '').valueChanges().subscribe((userData: User | null) => {
         if (userData){
           this.user = userData;
-          
-          console.log(userData);
           this.userService.getUserPicture(userData.uid).subscribe(picRef => {
             this.imgURL = picRef;
             this.loading = false;
