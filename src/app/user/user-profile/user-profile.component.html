@@ -1,5 +1,35 @@
 <main>
-    <div class="base">
+    <div class="loading" [ngClass]="loading ? 'active' : 'inactive'">
+        <div class="wrapper">
+            <span class="circle circle-1"></span>
+            <span class="circle circle-2"></span>
+            <span class="circle circle-3"></span>
+            <span class="circle circle-4"></span>
+            <span class="circle circle-5"></span>
+            <span class="circle circle-6"></span>
+            <span class="circle circle-7"></span>
+            <span class="circle circle-8"></span>
+          </div>
+    </div>
+    <div class="base" *ngIf="profileViewMode === 'view'">
+        <section class="basic" *ngIf='!loading'>
+            <div class="image">
+
+                <img [src]="imgURL" *ngIf="imgURL">
+            </div>
+            <div class="info">
+                <h1>{{user.name}}</h1>
+                <p>{{user.username}}</p>
+            </div>
+        </section>
+        <section class="desc" [innerHTML]="user.description">
+        </section>
+        <section class="stats">
+
+        </section>        
+    </div>
+
+    <div class="base" *ngIf="profileViewMode === 'edit'">
         <section class="basic">
             <div class="image">
                 <input #file type="file" id="selectedFile" style="display: none;"
@@ -8,43 +38,38 @@
                 <button (click)="file.click()"></button>
                 <img [src]="imgURL" *ngIf="imgURL">
             </div>
-            <div class="info">
-                <!--
+            <div class="info">    
                 <app-input-regular
                 [label]="'Name'" 
                 [placeholder]="'Name'" 
-                [(inputModel)]="profile.username" 
+                [(inputModel)]="user.name" 
                 [type]="'text'"
-                [darkMode]='false'></app-input-regular>     
+                [darkMode]='false'></app-input-regular> 
                 <app-input-regular
-                [label]="'Name'" 
-                [placeholder]="'Name'" 
-                [(inputModel)]="profile.username" 
-                [type]="'text'"
-                [darkMode]='false'></app-input-regular>   
-                <app-input-regular
-                [label]="'Name'" 
-                [placeholder]="'Name'" 
-                [(inputModel)]="profile.username" 
+                [label]="'Username'" 
+                [placeholder]="'Username'" 
+                [(inputModel)]="user.username" 
                 [type]="'text'"
                 [darkMode]='false'></app-input-regular>   
                 <app-input-regular
-                [label]="'Name'" 
-                [placeholder]="'Name'" 
-                [(inputModel)]="profile.username" 
+                [label]="'Facebook'" 
+                [placeholder]="'Facebook'" 
+                [(inputModel)]="user.facebook" 
                 [type]="'text'"
                 [darkMode]='false'></app-input-regular>   
                 <app-input-regular
-                [label]="'Name'" 
-                [placeholder]="'Name'" 
-                [(inputModel)]="profile.username" 
+                [label]="'Instagram'" 
+                [placeholder]="'Instagram'" 
+                [(inputModel)]="user.instagram" 
                 [type]="'text'"
-                [darkMode]='false'></app-input-regular>                  
-                -->
-                <h1>{{user.name}}</h1>
-                <p>{{user.username}}</p>
-
-    
+                [darkMode]='false'></app-input-regular>   
+                <app-input-regular
+                [label]="'LinkedIn'" 
+                [placeholder]="'LinkedIn'" 
+                [(inputModel)]="user.linkedin" 
+                [type]="'text'"
+                [darkMode]='false'></app-input-regular>  
+                <textarea name="" id="" cols="30" rows="10"></textarea>              
             </div>
         </section>
         <section class="desc">

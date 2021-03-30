@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit {
   public message!: string;
 
   file!: File;
-  updating = false;
+  loading = true;
 
   user: User = {
     name: '',
@@ -23,7 +23,7 @@ export class UserProfileComponent implements OnInit {
     email: '',
     facebook: '',
     instagram: '',
-    linkedIn: '',
+    linkedin: '',
     description: '',
     postsIDs: [],
     followers: 0,
@@ -45,6 +45,12 @@ export class UserProfileComponent implements OnInit {
       this.userService.getUser(user?.uid || '').valueChanges().subscribe((userData: User | null) => {
         if (userData){
           this.user = userData;
+          
+          console.log(userData);
+          this.userService.getUserPicture(userData.uid).subscribe(picRef => {
+            this.imgURL = picRef;
+            this.loading = false;
+          })
         }
       });
     });
@@ -55,26 +61,19 @@ export class UserProfileComponent implements OnInit {
       this.profileViewMode = 'edit';
     } else {
       this.profileViewMode = 'view';
-      // this.updateProfile();
+      this.updateProfile();
     }
-  }
-
-  kek(){
-    
   }
 
   preview(files: any): void {
-
     if (files.length === 0) {
       return;
     }
-
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.message = 'Only images are supported.';
       return;
     }
-
     const reader = new FileReader();
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
@@ -85,16 +84,16 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateProfile(): void{
-    this.updating = true;
+    this.loading = true;
     this.userService.updateUser(this.user).then(user => {
       console.log(user);
       if (this.file){
         this.userService.updateUserPicture(this.file, this.user.uid).then(pic => {
           console.log(pic);
-          this.updating = false;
+          this.loading = false;
         });
       }else{
-        this.updating = false;
+        this.loading = false;
       }
     });
   }

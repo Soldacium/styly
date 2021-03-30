@@ -59,7 +59,7 @@ export class AuthService {
       email,
       facebook: '',
       instagram: '',
-      linkedIn: '',
+      linkedin: '',
       description: '',
       postsIDs: [],
       followers: 0,

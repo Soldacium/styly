@@ -4,7 +4,7 @@ export interface User {
     email: string;
     facebook: string;
     instagram: string;
-    linkedIn: string;
+    linkedin: string;
     description: string;
     postsIDs: string[];
     followers: number;

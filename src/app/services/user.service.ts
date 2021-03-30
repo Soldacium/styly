@@ -22,7 +22,7 @@ export class UserService {
 
   updateUser(user: User): Promise<User | void> {
     const path = `/users/${user.uid}`;
-    return this.db.object(path).update(user);
+    return this.db.object(path).set(user);
   }
 
   getUserPicture(userID: string){
