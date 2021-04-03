@@ -1,13 +1,20 @@
 main
     scroll-snap-type: y mandatory
-section
     height: 100vh
     width: 100%
     position: relative
-    background-color: #ffffff
-    scroll-snap-stop: always
-    
 
+    
+button
+    &.change
+        background: none
+        border: none
+        cursor: pointer
+        color: gray
+        transition: 0.2s ease
+
+        &:hover
+            color: black
 
 .thumbnails
     width: 100%
@@ -24,26 +31,22 @@ section
         left: 0
         top: 0
         position: relative
-        background-color: white
-
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
         -webkit-transition: all .3s ease;
         transition: all .3s ease;
-        border: 0.5px solid #e6e6e6
-        margin: 0.5px
-        
+        box-shadow: 0 2px 2px 0 #0000000e
+        margin: 1px 
 
         .face
             position: absolute;
             width: 100%;
             height: 100%;
             -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            background-color: whitesmoke;  
+            backface-visibility: hidden;    
         
         .front
-            background-color: #ffffff
+            
             z-index: 1;
         .back
             overflow: hidden;
@@ -52,59 +55,60 @@ section
             -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
             box-sizing: border-box;
-            background-color: #3a3a3a
+            background-color: #ffffff
+        &:nth-of-type(9n)
+            .back
+                background-color: rgba(248,255,220,1)
+        &:nth-of-type(11n)
+            .back
+                background-color: rgba(247,220,255,1)
+        &:nth-of-type(13n)
+            .back
+                background-color: rgba(220,255,239,1)
+                
 
 .panel
-    box-shadow: var(--smooth-shadow-big)
-    transition: 1.2s ease
+    box-shadow: 0 0 3px 0 #0000001f
+    transition: 1.3s ease-in-out
 
-
-.login
-    // background-color: #e4e4e4
-
-
-    .login-panel
-        position: absolute
-        width: calc(15rem + 15vw)
-        background-color: #fff
-        height: 100%
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        top: -100%
-        left: 0%
-        z-index: 10
-
-
-        &.active
-            top: 0vw
+.login-panel
+    position: absolute
+    width: calc(15rem + 15vw)
+    background-color: #fff
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    top: 0%
+    left: 0%
+    z-index: 10
         
-        app-input-regular
-            margin: 1rem 0
-            min-width: 60%
+    
+    app-input-regular
+        margin: 1rem 0
+        min-width: 60%
 
-.register
-    .register-panel
-        position: absolute
-        width: calc(15rem + 15vw)
-        height: 100%
-        background-color: #3a3a3a
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        top: 100%
-        right: 0%
-        z-index: 11
-        color: white
+.register-panel
+    position: absolute
+    width: calc(15rem + 15vw)
+    height: 100%
+    
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    top: 100%
+    left: 0%
+    z-index: 11
+    color: white
 
-        &.active
-            top: 0
-        
-        app-input-regular
-            margin: 1rem 0
-            min-width: 60%
+    &.active
+        top: 0
+    
+    app-input-regular
+        margin: 1rem 0
+        min-width: 60%
 
 @media screen and ( max-width: 800px )
     .login-panel

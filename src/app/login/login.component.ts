@@ -9,8 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  backgroundColor = '#3a3a3a';
-  borderColor = '#fff';
+  backgroundColor = '#f9f9f9';
+  borderColor = '#111';
 
   numOfSimpleThumbnails = 42;
   simpleThumbnails: number[] = [];
@@ -30,39 +30,26 @@ export class LoginComponent implements OnInit {
 
   doneAnimations = {
     background: false,
+    cards: false
   };
+
+  mode: 'login' | 'register' = 'login';
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.simpleThumbnails = Array(this.numOfSimpleThumbnails).fill(0).map((x, i) => i);
-    this.addEventListeners();
   }
 
 
-  loginWithCredentials(){
-    this.authService.loginWithCredentials(this.loginCreds.email,this.loginCreds.password);
-  }
-
-  loginWithGoogle(){
-    this.authService.loginWithGoogle();
-  }
-
-  registerWithCredentials(){
-    this.authService.registerWithCredentials(this.registerCreds.email,this.registerCreds.password1,this.registerCreds.username);
-  }
-
-  addEventListeners(): void {
-    window.addEventListener('scroll', (e) => {
-      if ((window.scrollY / window.innerHeight) > 0.75 && !this.doneAnimations.background){
-        this.animateThumbnailsForward();
-        this.doneAnimations.background = true;
-      }
-      if ((window.scrollY / window.innerHeight) < .75 && this.doneAnimations.background){
-        this.animateThumbnailsBackwards();
-        this.doneAnimations.background = false;
-      }
-    });
+  changeMode(): void {
+    if (this.mode === 'login'){
+      this.mode  = 'register';
+      this.animateThumbnailsForward();
+    }else{
+      this.mode = 'login';
+      this.animateThumbnailsBackwards();
+    }
   }
 
   animateThumbnailsForward(): void {
@@ -71,22 +58,35 @@ export class LoginComponent implements OnInit {
       anime({
         targets: thumb,
         duration: 500,
-        delay: (this.simpleThumbnailsNodes.length - i) * 25,
+        delay: (this.simpleThumbnailsNodes.length - i) * 15,
         rotateX: [0, 180],
         easing: 'easeInOutCirc'
       });
     });
   }
 
-  animateThumbnailsBackwards(){
+  animateThumbnailsBackwards(): void {
     this.simpleThumbnailsNodes.forEach((thumb, i) => {
       anime({
         targets: thumb,
         duration: 500,
-        delay: i * 25,
+        delay: i * 15,
         rotateX: [180, 0],
         easing: 'easeInOutCirc'
       });
     });
   }
+
+  loginWithCredentials(): void {
+    this.authService.loginWithCredentials(this.loginCreds.email, this.loginCreds.password);
+  }
+
+  loginWithGoogle(): void {
+    this.authService.loginWithGoogle();
+  }
+
+  registerWithCredentials(): void {
+    this.authService.registerWithCredentials(this.registerCreds.email, this.registerCreds.password1, this.registerCreds.username);
+  }
+
 }

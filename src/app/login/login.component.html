@@ -1,85 +1,64 @@
 <main>
-    <section class="login">
-        <div class="thumbnails">
-            <div class="simpleThumbnail" *ngFor='let thumb of simpleThumbnails'>
-                <div class="front face"></div>
-                <div class="back face"></div>  
-            </div>
-        </div>            
-        
-            
-
-        <div class="login-panel panel" [ngClass]="{'active': !doneAnimations.background}">
-            <h1>LOGIN</h1>
-
-            <button (click)="loginWithGoogle()">Login with Google</button>
-
-            <app-input-regular
-            [label]="'Name'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="loginCreds.email" 
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>
-
-            <app-input-regular
-            [label]="'Password'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="loginCreds.email" 
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>
-
-            <app-button-regular [text]="'Get going'" (click)='loginWithCredentials()'></app-button-regular>
+    <div class="thumbnails">
+        <div class="simpleThumbnail" *ngFor='let thumb of simpleThumbnails'>
+            <div class="front face"></div>
+            <div class="back face"></div>  
         </div>
-    </section>
+    </div>            
 
-    <section class="register" >
-        <div class="thumbnails">
-            <div class="simpleThumbnail" *ngFor='let thumb of simpleThumbnails'>
-                <div class="front face"></div>
-                <div class="back face"></div>  
-            </div>
-        </div>   
-        <div class="register-panel panel" [ngClass]="{'active': doneAnimations.background}">
-            <h1>REGISTER</h1>
-            <app-input-regular
-            [label]="'Email'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="registerCreds.email" 
-            [backgroundColor]="backgroundColor"
-            [borderColor]="borderColor"
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>
-
-            <app-input-regular
-            [label]="'Password'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="registerCreds.password1" 
-            [backgroundColor]="backgroundColor"
-            [borderColor]="borderColor"
-            [type]="'password'"
-            [darkMode]='false'></app-input-regular>
-
-            <app-input-regular
-            [label]="'Repeat password'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="registerCreds.password2" 
-            [backgroundColor]="backgroundColor"
-            [borderColor]="borderColor"
-            [type]="'password'"
-            [darkMode]='false'></app-input-regular>
-
-            <app-input-regular
-            [label]="'Name'" 
-            [placeholder]="'Name'" 
-            [(inputModel)]="registerCreds.username" 
-            [backgroundColor]="backgroundColor"
-            [borderColor]="borderColor"
-            [type]="'text'"
-            [darkMode]='false'></app-input-regular>
-
-
-
-            <app-button-regular [text]="'Start your journey'" (onclick)='registerWithCredentials()'></app-button-regular>
-        </div>
-    </section>
+    <div class="login-panel panel" [ngClass]="{'active': mode === 'login'}">
+        <h1>LOGIN</h1>
+        <button (click)="loginWithGoogle()">Login with Google</button>
+        <app-input-regular
+        [label]="'Name'" 
+        [placeholder]="'Name'" 
+        [(inputModel)]="loginCreds.email" 
+        [type]="'text'"
+        [darkMode]='false'></app-input-regular>
+        <app-input-regular
+        [label]="'Password'" 
+        [placeholder]="'Name'" 
+        [(inputModel)]="loginCreds.email" 
+        [type]="'text'"
+        [darkMode]='false'></app-input-regular>
+        <button class="change" (click)="changeMode()">Or register here...</button>
+        <app-button-regular [text]="'Get going'" (click)='loginWithCredentials()'></app-button-regular>
+    </div>
+    <div class="register-panel panel" [ngClass]="{'active': mode === 'register'}" [style.background]="backgroundColor">
+        <h1 [style.color]="borderColor">REGISTER</h1>
+        <app-input-regular
+        [label]="'Email'" 
+        [placeholder]="'Name'" 
+        [(inputModel)]="registerCreds.email" 
+        [backgroundColor]="backgroundColor"
+        [borderColor]="borderColor"
+        [type]="'text'"
+        [darkMode]='false'></app-input-regular>
+        <app-input-regular
+        [label]="'Password'" 
+        [placeholder]="'Name'" 
+        [(inputModel)]="registerCreds.password1" 
+        [backgroundColor]="backgroundColor"
+        [borderColor]="borderColor"
+        [type]="'password'"
+        [darkMode]='false'></app-input-regular>
+        <app-input-regular
+        [label]="'Repeat password'" 
+        [placeholder]="'Name'" 
+        [(inputModel)]="registerCreds.password2" 
+        [backgroundColor]="backgroundColor"
+        [borderColor]="borderColor"
+        [type]="'password'"
+        [darkMode]='false'></app-input-regular>
+        <app-input-regular
+        [label]="'Name'" 
+        [placeholder]="'Name'" 
+        [(inputModel)]="registerCreds.username" 
+        [backgroundColor]="backgroundColor"
+        [borderColor]="borderColor"
+        [type]="'text'"
+        [darkMode]='false'></app-input-regular>
+        <button class="change" (click)="changeMode()">Or login here...</button>
+        <app-button-regular [text]="'Start your journey'" (onclick)='registerWithCredentials()'></app-button-regular>
+    </div>
 </main>
