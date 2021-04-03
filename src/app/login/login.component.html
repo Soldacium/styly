@@ -10,16 +10,16 @@
         <h1>LOGIN</h1>
         <button (click)="loginWithGoogle()">Login with Google</button>
         <app-input-regular
-        [label]="'Name'" 
-        [placeholder]="'Name'" 
+        [label]="'Email'" 
+        [placeholder]="'Email'" 
         [(inputModel)]="loginCreds.email" 
         [type]="'text'"
         [darkMode]='false'></app-input-regular>
         <app-input-regular
         [label]="'Password'" 
-        [placeholder]="'Name'" 
-        [(inputModel)]="loginCreds.email" 
-        [type]="'text'"
+        [placeholder]="'Password'" 
+        [(inputModel)]="loginCreds.password" 
+        [type]="'password'"
         [darkMode]='false'></app-input-regular>
         <button class="change" (click)="changeMode()">Or register here...</button>
         <app-button-regular [text]="'Get going'" (click)='loginWithCredentials()'></app-button-regular>

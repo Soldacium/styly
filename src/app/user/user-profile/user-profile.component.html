@@ -24,11 +24,8 @@
         </section>
         <section class="desc" [innerHTML]="user.description">
         </section>
-        <section class="stats">
-
-        </section>        
+        <section class="stats"></section>        
     </div>
-
     <div class="base" *ngIf="profileViewMode === 'edit'">
         <section class="basic">
             <div class="image">
@@ -75,11 +72,8 @@
         <section class="desc">
             <quill-editor [(ngModel)]="user.description"></quill-editor>
         </section>
-        <section class="stats">
-
-        </section>        
+        <section class="stats"></section>        
     </div>
     <app-button-regular [text]="'Edit profile'" (onclick)='changeProfileViewMode()' *ngIf="profileViewMode === 'view'"></app-button-regular>
     <app-button-regular [text]="'Edit profile'" (onclick)='changeProfileViewMode()' *ngIf="profileViewMode === 'edit'"></app-button-regular>
-
 </main>

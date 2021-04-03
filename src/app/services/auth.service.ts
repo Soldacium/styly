@@ -48,7 +48,7 @@ export class AuthService {
     });
   }
 
-  registerWithGoogle(){
+  registerWithGoogle(): void {
 
   }
 
@@ -80,8 +80,7 @@ export class AuthService {
   logOut(): void {
     this.afAuth.signOut().then(res => {
       this.router.navigate(['/']);
-    })
+    });
   }
-
 
 }
