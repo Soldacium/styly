@@ -10,8 +10,10 @@ main
 
     .card
         width: 100%
-        padding: 5rem
-        box-shadow: 0 3px 3px 0px #f3f3f3
+        padding: 3rem 5rem
+        // box-shadow: 0 3px 3px 0px #f3f3f3
+        // border: 2px solid #f3f3f3
+        border-top: 0px solid #fff
         margin: 1rem 0
         position: relative
 
@@ -65,13 +67,18 @@ main
         width: 600px;
         height: 20vh;
         overflow: hidden;
-        background-color: rgb(247, 247, 247);
+        background-color: rgb(255, 255, 255);
+        border: 2px solid #f3f3f3;
         z-index: 8;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative
         margin: 2rem 0
+        background-image: url('../../../assets/icons/camera.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 60px;
 
         img
             position: relative;
@@ -98,7 +105,6 @@ main
         align-items: center;
         align-content: center;
         width: 100%;
-        padding: 1rem;
         flex-wrap: wrap;
 
         .tag
@@ -106,7 +112,6 @@ main
             border: none;
             display: flex;
             font-size: 1rem;
-            border-radius: 0.6rem;
             font-weight: 500;
             color: rgba(0, 0, 0, 0.699);
             border: none;
@@ -141,24 +146,22 @@ main
         align-items: center;
         align-content: center;
         width: 100%;
-        padding: 1rem;
         flex-wrap: wrap;
+        margin-bottom: 3rem
 
         .type
-            padding: 0.6rem 1rem;
+            padding: 3rem 1rem;
             border: none;
             display: flex;
-            font-size: 1rem;
-            border-radius: 0.6rem;
+            justify-content: center
+            align-items: center
+            flex: 1 1 25%;
+            font-size: 1.3rem;
             font-weight: 500;
-            color: rgba(0, 0, 0, 0.699);
             border: none;
-            box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.055) inset;
+            // box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.055) inset;
             background-color: rgb(248, 248, 248);
-            margin: 0.5rem;
-            margin-left: 0;
             transition: 0.3s ease;
-            align-items: center;
             cursor: pointer;
 
             &:focus
@@ -176,7 +179,7 @@ main
                 background-size: cover;
             
             &.active     
-                background-color: var(--colorAccent);
+                background-color: var(--colorAccent3);
                 font-size: 600;
 
                 span

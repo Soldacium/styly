@@ -1,4 +1,9 @@
 <main>
+    <div class="types">
+        <button class="type" *ngFor='let type of postTypes' (click)='pickType(type)' [ngClass]="chosenType === type ?'active':'naah'">
+            <div>{{type}}</div>
+        </button>
+    </div>
     <div class="card" >
         <div class="hide" (click)="sectionsOpen.basics = !sectionsOpen.basics" >Basics 
             <img 
@@ -42,11 +47,7 @@
             alt="">
         </div>
         <div class="card-content" [ngClass]="{'hidden': !sectionsOpen.reco}">
-            <div class="types">
-                <button class="type" *ngFor='let type of postTypes' (click)='pickType(type)' [ngClass]="chosenType === type ?'active':'naah'">
-                    <div>{{type}}</div>
-                </button>
-            </div>
+
             <div class="tags">
                 <button class="tag" *ngFor='let tag of postTags' (click)='pickTag(tag)' [ngClass]="(chosenTags.includes(tag)?'active':'naah')">
                     <div>{{tag}}</div>
