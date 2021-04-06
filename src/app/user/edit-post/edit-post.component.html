@@ -56,5 +56,5 @@
             <textarea name="" id="" cols="30" rows="10" placeholder="Summany of the post" [(ngModel)]='post.summary'></textarea>            
         </div>
     </div>
-    <app-button-regular [text]="'Start your journey'"></app-button-regular>
+    <app-button-regular [text]="'Start your journey'" (click)="postPost()"></app-button-regular>
 </main>

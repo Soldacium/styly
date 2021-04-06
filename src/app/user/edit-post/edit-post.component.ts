@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { PostsService } from 'src/app/services/posts.service';
 import { Post } from 'src/app/shared/models/post.model';
 
 @Component({
@@ -48,13 +50,26 @@ export class EditPostComponent implements OnInit {
     reco: false
   };
 
-  constructor(){}
+  constructor(private postService: PostsService, private authService: AuthService){}
 
   ngOnInit(): void {
   }
 
   postPost(): void {
+    const newPost = this.modifyPost();
+    this.postService.postPost(newPost).then(res => {
+      console.log(res);
+    })
+  }
 
+  modifyPost(): Post {
+    return {
+      ...this.post,
+      authorID: this.authService.userInfo.uid,
+      tags: this.chosenTags,
+      type: this.chosenType,
+      date: new Date().toString()
+    }
   }
 
   preview(files: any): void {
@@ -76,7 +91,7 @@ export class EditPostComponent implements OnInit {
   }
 
   pickType(type: string): void {
-    this.chosenType === type ? this.chosenType = '' : this.chosenType = type;
+    this.chosenType = type;
   }
 
   pickTag(tag: string): void {
