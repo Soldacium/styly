@@ -10,6 +10,8 @@ import { Post } from 'src/app/shared/models/post.model';
 })
 export class EditPostComponent implements OnInit {
 
+  loading = false;
+
   public imagePath!: string;
   imgURL: any;
   public message!: string;
@@ -17,7 +19,7 @@ export class EditPostComponent implements OnInit {
   file!: File;
   posted = false;
 
-  chosenType = '';
+  chosenType = 'Amazement';
   postTypes: string[] = ['Amazement', 'Essay', 'Guide', 'Something' ];
 
   chosenTags: string[] = [];
@@ -55,23 +57,6 @@ export class EditPostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  postPost(): void {
-    const newPost = this.modifyPost();
-    this.postService.postPost(newPost).then(res => {
-      console.log(res);
-    })
-  }
-
-  modifyPost(): Post {
-    return {
-      ...this.post,
-      authorID: this.authService.userInfo.uid,
-      tags: this.chosenTags,
-      type: this.chosenType,
-      date: new Date().toString()
-    }
-  }
-
   preview(files: any): void {
     if (files.length === 0) {
       return;
@@ -95,11 +80,40 @@ export class EditPostComponent implements OnInit {
   }
 
   pickTag(tag: string): void {
-    if(this.chosenTags.includes(tag)){
-      this.chosenTags.splice(this.chosenTags.indexOf(tag),1);
+    if (this.chosenTags.includes(tag)){
+      this.chosenTags.splice(this.chosenTags.indexOf(tag), 1);
     } else {
       this.chosenTags.push(tag);
     }
+  }
+
+  checkIfPostIsProper(): boolean {
+    return this.post.title.length > 4 &&
+    this.post.content.length > 100 &&
+    this.post.summary.length > 15;
+  }
+
+  postPost(): void {
+    const newPost = this.modifyPost();
+    this.postService.postPost(newPost).then((res: Post | void) => {
+      if (this.file && res){
+        this.postService.updatePostPicture(this.file, res.uid).then(pic => {
+          this.loading = false;
+        });
+      }else{
+        this.loading = false;
+      }
+    });
+  }
+
+  modifyPost(): Post {
+    return {
+      ...this.post,
+      authorID: this.authService.userInfo.uid,
+      tags: this.chosenTags,
+      type: this.chosenType,
+      date: new Date().toString()
+    };
   }
 
 

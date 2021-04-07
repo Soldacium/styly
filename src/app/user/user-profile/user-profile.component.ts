@@ -84,10 +84,8 @@ export class UserProfileComponent implements OnInit {
   updateProfile(): void{
     this.loading = true;
     this.userService.updateUser(this.user).then(user => {
-      console.log(user);
       if (this.file){
         this.userService.updateUserPicture(this.file, this.user.uid).then(pic => {
-          console.log(pic);
           this.loading = false;
         });
       }else{
@@ -95,9 +93,6 @@ export class UserProfileComponent implements OnInit {
       }
     });
   }
-
-
-
 
 
 }

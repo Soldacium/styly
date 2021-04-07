@@ -35,7 +35,7 @@
             alt="">
         </div>
         <div class="card-content" [ngClass]="{'hidden': !sectionsOpen.content}">
-            <quill-editor></quill-editor>
+            <quill-editor [(ngModel)]='post.content'></quill-editor>
         </div> 
     </div>
     <div class="card">
@@ -56,5 +56,9 @@
             <textarea name="" id="" cols="30" rows="10" placeholder="Summany of the post" [(ngModel)]='post.summary'></textarea>            
         </div>
     </div>
-    <app-button-regular [text]="'Start your journey'" (click)="postPost()"></app-button-regular>
+    <app-button-regular 
+    [text]="'Start your journey'" 
+    [ngClass]="{'active': checkIfPostIsProper()}"
+    class="submitButton"
+    (click)="postPost()"></app-button-regular>
 </main>
