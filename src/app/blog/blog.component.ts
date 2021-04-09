@@ -41,6 +41,7 @@ export class BlogComponent implements OnInit {
     this.addScroll();
     this.posts = this.getPosts(1);
     this.popularPosts = this.getPopularPosts();
+    console.log('hey');
   }
 
   getPosts(page: number): Observable<Post[]>{

@@ -45,8 +45,16 @@ export class PostThumbnailComponent implements OnInit {
   @Output() onclick:
   EventEmitter<Event> = new EventEmitter<Event>();
 
-  ngOnInit(): void {
+  imageReady = '';
 
+  ngOnInit(): void {
+    this.getImageLink();
+  }
+
+  getImageLink(): void {
+    this.image.subscribe(img => {
+      this.imageReady = img;
+    })
   }
 
   clickButton(event: Event): void{

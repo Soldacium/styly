@@ -7,7 +7,7 @@
         <a [routerLink]='["welcome"]'>About</a>
         <a [routerLink]='["welcome"]'>News</a>
         <a [routerLink]='["user/profile"]' *ngIf="user?.uid">User</a>
-        <div class="login" *ngIf="!user?.uid" (click)="kek()">
+        <div class="login" *ngIf="!user?.uid">
             <a [routerLink]='["login"]'>Login</a>
         </div>           
     </nav>

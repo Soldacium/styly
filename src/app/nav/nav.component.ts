@@ -32,11 +32,6 @@ export class NavComponent implements OnInit {
     });
   }
 
-  kek(){
-    console.log(this.user);
-  }
-
-
   addListeners(): void {
     window.addEventListener('scroll', (e) => {
       if (window.scrollY > 60){

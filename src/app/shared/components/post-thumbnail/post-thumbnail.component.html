@@ -1,7 +1,7 @@
 <main>
-    <div class="image-wrap">
+    <div class="image-wrap" [ngClass]="type">
         <div class="image-borders">
-            <img *ngIf="image | async" [src]="image" alt="">   
+            <img [src]="imageReady" alt="">     
         </div>
     </div>
     <div class="text">

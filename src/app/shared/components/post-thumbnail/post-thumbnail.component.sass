@@ -15,8 +15,6 @@ main
             border-radius: 0;
 
             .image-borders
-                width: 60%;
-                height: 60%;
                 border-radius: 0;
      
         .content
@@ -35,9 +33,18 @@ main
         border-radius: 50%;
         transition: 0.5s ease;
 
+        &.Amazement
+            background-color: var(--colorType1);
+        &.Essay
+            background-color: var(--colorType2);
+        &.Guide
+            background-color: var(--colorType3);
+        &.Something
+            background-color: var(--colorType4);
+
         .image-borders
-            width: 6rem;
-            height: 6rem;
+            width: 60%;
+            height: 60%;
             position: relative;
             display: flex;
             justify-content: center;
@@ -46,6 +53,7 @@ main
             overflow: hidden;
             transition: 0.5s ease;
             transition-delay: 0.1s;
+
             img
                 position: relative;
                 width: 100%;       
