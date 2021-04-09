@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireObject } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import anime from 'animejs';
+import { Observable } from 'rxjs';
+import { PostsService } from '../services/posts.service';
+import { UserService } from '../services/user.service';
+import { Post } from '../shared/models/post.model';
+import { User } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-blog',
@@ -10,7 +16,8 @@ import anime from 'animejs';
 })
 export class BlogComponent implements OnInit {
 
-  posts = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1];
+  posts!: Observable<Post[]>;
+  popularPosts!: Observable<Post[]>;
   pages = [1, 2, 3, 4, 5, 6, 7];
   pageActive = 0;
   parallax!: HTMLElement;
@@ -21,7 +28,10 @@ export class BlogComponent implements OnInit {
 
   cards!: NodeList;
   featuredPostsElements!: NodeList;
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private postsService: PostsService,
+    private userService: UserService) { }
 
 
   ngOnInit(): void {
@@ -29,9 +39,27 @@ export class BlogComponent implements OnInit {
     this.cards = document.querySelectorAll('.card');
     this.featuredPostsElements = document.querySelectorAll('.featured-post');
     this.addScroll();
+    this.posts = this.getPosts(1);
+    this.popularPosts = this.getPopularPosts();
   }
 
-  addScroll(){
+  getPosts(page: number): Observable<Post[]>{
+    return this.postsService.getPosts(1).valueChanges();
+  }
+
+  getPostUser(authorID: string): Observable<User | null>{
+    return this.userService.getUser(authorID).valueChanges();
+  }
+
+  getPostPicture(postID: string): Observable<string>{
+    return this.postsService.getPostPicture(postID);
+  }
+
+  getPopularPosts(): Observable<Post[]>{
+    return this.postsService.getPopularPosts().valueChanges();
+  }
+
+  addScroll(): void{
     window.addEventListener('scroll', (e) => {
       this.parallax.style.top = 0.3 * window.scrollY + 'px';
       if (window.scrollY / window.innerHeight <= 0.3 && this.animationsDone.flipped){
@@ -45,7 +73,7 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  animateFlip(){
+  animateFlip(): void{
     this.cards.forEach((card, i) => {
       anime({
         targets: card,
@@ -56,7 +84,7 @@ export class BlogComponent implements OnInit {
       });
     });
 
-    this.featuredPostsElements.forEach((post,i)=>{
+    this.featuredPostsElements.forEach((post, i) => {
       anime({
         targets: post,
         duration: 500,
@@ -65,7 +93,6 @@ export class BlogComponent implements OnInit {
         easing: 'easeInOutCirc'
       });
     });
-
   }
 
   animateUnflip(): void {

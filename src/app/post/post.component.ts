@@ -12,14 +12,16 @@ export class PostComponent implements OnInit {
 
   post: Post = {
     title: 'Title of first post',
-    tags: ['ayy','2'],
+    tags: ['ayy', '2'],
     date: '21/05/2015',
-    authorID:'A random author',
+    authorID: 'A random author',
     content: '',
     comments: [],
     summary: '',
     uid: '',
-    type: ''
+    type: '',
+    likes: 0,
+    shares: 0
   };
 
   postImg = '';

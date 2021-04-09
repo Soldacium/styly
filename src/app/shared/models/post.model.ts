@@ -7,6 +7,8 @@ export interface Post {
     date: string;
     content: string;
     summary: string;
+    likes: number;
+    shares: number;
     comments: Comment[];
     authorID: string;
     uid: string;

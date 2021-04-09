@@ -1,12 +1,12 @@
 <main>
     <div class="image-wrap">
         <div class="image-borders">
-            <img [src]="image" alt="">   
+            <img *ngIf="image | async" [src]="image" alt="">   
         </div>
     </div>
     <div class="text">
-        <span>{{date}}</span>
-        <span>{{author}}</span>
+        <span>{{date | date:'short'}}</span>
+        <span >{{(author | async)?.username}}</span>
         <h1>{{title}}</h1>
         <p>{{desc}}</p>
     </div>

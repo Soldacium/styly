@@ -43,7 +43,9 @@ export class EditPostComponent implements OnInit {
     summary: '',
     uid: '',
     authorID: '',
-    type: ''
+    type: '',
+    likes: 0,
+    shares: 0
   };
 
   sectionsOpen = {

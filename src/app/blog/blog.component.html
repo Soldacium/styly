@@ -28,29 +28,41 @@
         </div>
 
         <app-post-thumbnail 
-        class="featured-post"
-        (click)='viewPost(1)'
-        [image]="'assets/images/posts-BG/cool6.jpg'"
-        [desc]="''"
-        [title]="'How does achive one greatness?'"
-        [date]="'20/06/2020'"
-        [author]="'By Robin Martin'"></app-post-thumbnail>
-        <app-post-thumbnail 
-        class="featured-post"
-        (click)='viewPost(1)'
-        [image]="'assets/images/posts-BG/cool6.jpg'"
-        [desc]="''"
-        [title]="'How does achive one greatness?'"
-        [date]="'20/06/2020'"
-        [author]="'By Robin Martin'"></app-post-thumbnail>
-        <app-post-thumbnail 
-        class="featured-post"
-        (click)='viewPost(1)'
-        [image]="'assets/images/posts-BG/cool6.jpg'"
-        [desc]="''"
-        [title]="'How does achive one greatness?'"
-        [date]="'20/06/2020'"
-        [author]="'By Robin Martin'"></app-post-thumbnail>
+        *ngFor='let post of popularPosts | async' (click)='viewPost(post)'
+        [image]="getPostPicture(post.uid)"
+        [desc]="post.summary"
+        [title]="post.title"
+        [date]="post.date"
+        [author]="getPostUser(post.authorID)"
+        [type]="post.type"></app-post-thumbnail>
+
+        <!--
+            <app-post-thumbnail 
+            class="featured-post"
+            (click)='viewPost(1)'
+            [image]="'assets/images/posts-BG/cool6.jpg'"
+            [desc]="''"
+            [title]="'How does achive one greatness?'"
+            [date]="'20/06/2020'"
+            [author]="'By Robin Martin'"></app-post-thumbnail>
+            <app-post-thumbnail 
+            class="featured-post"
+            (click)='viewPost(1)'
+            [image]="'assets/images/posts-BG/cool6.jpg'"
+            [desc]="''"
+            [title]="'How does achive one greatness?'"
+            [date]="'20/06/2020'"
+            [author]="'By Robin Martin'"></app-post-thumbnail>
+            <app-post-thumbnail 
+            class="featured-post"
+            (click)='viewPost(1)'
+            [image]="'assets/images/posts-BG/cool6.jpg'"
+            [desc]="''"
+            [title]="'How does achive one greatness?'"
+            [date]="'20/06/2020'"
+            [author]="'By Robin Martin'"></app-post-thumbnail>            
+        -->
+
     </section>
     <header >
         <h2>
@@ -61,12 +73,13 @@
     <section class="allPosts" >
    
         <app-post-thumbnail 
-        *ngFor='let post of posts' (click)='viewPost(post)'
-        [image]="'assets/images/posts-BG/cool6.jpg'"
-        [desc]="''"
-        [title]="'How does achive one greatness?'"
-        [date]="'20/06/2020'"
-        [author]="'By Robin Martin'"></app-post-thumbnail>
+        *ngFor='let post of posts | async' (click)='viewPost(post)'
+        [image]="getPostPicture(post.uid)"
+        [desc]="post.summary"
+        [title]="post.title"
+        [date]="post.date"
+        [author]="getPostUser(post.authorID)"
+        [type]="post.type"></app-post-thumbnail>
         <app-paginator [pageSize]="10" [totalSize]="100"></app-paginator>        
     </section>
 

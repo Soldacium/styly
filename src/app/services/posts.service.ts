@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { Post } from '../shared/models/post.model';
 import firebase from 'firebase/app';
@@ -28,16 +28,26 @@ export class PostsService {
     return this.db.object(path).set(post);
   }
 
-  updatePostPicture(img: File, userID: string): AngularFireUploadTask{
-    return this.storage.upload(`profileImg/${userID}`, img);
+  updatePostPicture(img: File, postID: string): AngularFireUploadTask{
+    return this.storage.upload(`posts/${postID}`, img);
   }
 
-  getPostPicture(userID: string): Observable<string> {
-    return this.storage.ref(`profileImg/${userID}`).getDownloadURL();
+  getPostPicture(postID: string): Observable<string> {
+    return this.storage.ref(`posts/${postID}`).getDownloadURL();
   }
 
-  getPost(postID: string): AngularFireObject<Post>{
+  getPost(postID: string): AngularFireObject<Post> {
     const path = `/posts/${postID}`;
     return this.db.object(path);
+  }
+
+  getPosts(page: number): AngularFireList<Post> {
+    const postsRef = this.db.list<Post>('/posts/',ref => ref.limitToFirst(page * 20));
+    return postsRef;
+  }
+
+  getPopularPosts(): AngularFireList<Post> {
+    const postsRef = this.db.list<Post>('/posts/',ref => ref.limitToFirst(3));
+    return postsRef;
   }
 }
